@@ -6,6 +6,10 @@ public class App {
     private JButton button1;
     private JPanel panelMain;
 
+    /**
+     * tutaj komentarze zostawaia niezlykozak
+     * elo jebac pis
+     */
     public App() {
         button1.addActionListener(new ActionListener() {
             @Override
