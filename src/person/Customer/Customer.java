@@ -48,10 +48,12 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return "Customer{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", sID='" + sID + '\'' +
-                ", iPIN=" + iPIN +
+                //"login='" + login + '\'' +
+                //", password='" + password + '\'' +
+                "Name='" + getFirstName() + '\'' +
+                "Surname='" + getLastName() + '\'' +
+                //", sID='" + sID + '\'' +
+                //", iPIN=" + iPIN +
                 '}';
     }
 

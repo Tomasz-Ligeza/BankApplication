@@ -3,63 +3,69 @@ package person;
 import java.util.Date;
 import address.Address;
 
+/**
+ * pola protected sa widzialne w calym pakaiecie
+ * jest to jednak jedyne rozwiazanie zeby byly widoczne w podklasach i
+ * a nie byly widziane globalnie
+ * modyfiator private ogranicza widzialnosc pol jedynie do tej klasy
+ */
 public abstract class Person {
-    private String firstName;
-    private String lastName;
-    private String sPESEL;
+    protected String firstName;
+    protected String lastName;
+    protected String sPESEL;
 
-    private int age;
-    private Date bornDate;
-    private Address address;
+    protected int age;
+    protected Date bornDate;
+    protected Address address;
 
-    public Person() {
+    protected Person() {
     }
 
-    public String getFirstName() {
+    protected String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    protected void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    protected String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    protected void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getsPESEL() {
+    protected String getsPESEL() {
         return sPESEL;
     }
 
-    public void setsPESEL(String sPESEL) {
+    protected void setsPESEL(String sPESEL) {
         this.sPESEL = sPESEL;
     }
 
-    public int getAge() {
+    protected int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    protected void setAge(int age) {
         this.age = age;
     }
 
-    public Date getBornDate() {
+    protected Date getBornDate() {
         return bornDate;
     }
 
-    public void setBornDate(Date bornDate) {
+    protected void setBornDate(Date bornDate) {
         this.bornDate = bornDate;
     }
 
-    public Address getAddress() {
+    protected Address getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    protected void setAddress(Address address) {
         this.address = address;
     }
 }
