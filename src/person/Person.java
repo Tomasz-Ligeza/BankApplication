@@ -1,7 +1,12 @@
 package person;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import address.Address;
+import auto.calculators.AgeCalculator;
+
+import static auto.calculators.AgeCalculator.calculateAge;
 
 /**
  * pola protected sa widzialne w calym pakaiecie
@@ -15,28 +20,17 @@ public abstract class Person {
     private String sPESEL;
 
     private int age;
-    private Date bornDate;
+    private LocalDate bornDate;
     private Address address;
 
     public Person(){
         //default
     }
-    //TODO: nalezy zaimlemetwac liczneie wieku na podstawie daty urodzin
 
-    /**
-     *
-     * @param firstName
-     * @param lastName
-     * @param sPESEL
-     * @param age - nie mozna przesylac wieku w parametrze
-     *            moze dojsc do oszustw i wiek != wiek(wg daty urodzin)
-     * @param bornDate
-     * @param address
-     */
-    public Person(String firstName, String lastName, String sPESEL, int age, Date bornDate, Address address) {
+    public Person(String firstName, String lastName, String sPESEL, LocalDate bornDate, Address address) {
         setAddress(address);
-        setAge(age);
         setBornDate(bornDate);
+        setAge(this.bornDate);
         setsPESEL(sPESEL);
         setFirstName(firstName);
         setLastName(lastName);
@@ -70,15 +64,16 @@ public abstract class Person {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(LocalDate bornDate) {
+        int age = calculateAge(bornDate);
         this.age = age;
     }
 
-    public Date getBornDate() {
+    public LocalDate getBornDate() {
         return bornDate;
     }
 
-    public void setBornDate(Date bornDate) {
+    public void setBornDate(LocalDate bornDate) {
         this.bornDate = bornDate;
     }
 

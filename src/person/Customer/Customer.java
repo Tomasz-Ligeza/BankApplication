@@ -20,7 +20,7 @@ public class Customer extends Person implements Generator {
         this.sID = setsID();
     }
     public Customer(String firstName, String lastName, String sPESEL, int age, Date bornDate, Address address, String login, int pin ) {
-        super(firstName, lastName, sPESEL, age, bornDate, address);
+        super(firstName, lastName, sPESEL, bornDate, address);
         this.sID = setsID();
         setLogin(login);
         setPassword();
