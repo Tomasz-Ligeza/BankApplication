@@ -1,16 +1,30 @@
 package person.Customer;
 
+import address.Address;
+import auto.Generator;
 import person.Person;
 
+import java.security.SecureRandom;
+import java.util.Date;
 import java.util.Objects;
+import java.util.UUID;
 
-public class Customer extends Person {
+public class Customer extends Person implements Generator {
     private String login;
-    private String password;
-    private String sID;
+    private String password;    //poczatkowe haslo jest generowane automatycznie, mozna zmienic w zmienDane();
+    private final String sID;
     private int iPIN;
 
-    public Customer() {
+    public Customer(){
+        //default
+        this.sID = setsID();
+    }
+    public Customer(String firstName, String lastName, String sPESEL, int age, Date bornDate, Address address, String login, int pin ) {
+        super(firstName, lastName, sPESEL, age, bornDate, address);
+        this.sID = setsID();
+        setLogin(login);
+        setPassword();
+        setiPIN(pin);
     }
 
     public String getLogin() {
@@ -25,16 +39,21 @@ public class Customer extends Person {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    private void setPassword() {
+        this.password = setPass();
+    }
+
+    public void setPassword(String newPassw){
+        this.password = newPassw;
     }
 
     public String getsID() {
         return sID;
     }
 
-    public void setsID(String sID) {
-        this.sID = sID;
+    private String setsID() {
+        String uniqueID = setId();
+        return uniqueID;
     }
 
     public int getiPIN() {

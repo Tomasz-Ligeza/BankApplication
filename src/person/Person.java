@@ -10,62 +10,83 @@ import address.Address;
  * modyfiator private ogranicza widzialnosc pol jedynie do tej klasy
  */
 public abstract class Person {
-    protected String firstName;
-    protected String lastName;
-    protected String sPESEL;
+    private String firstName;
+    private String lastName;
+    private String sPESEL;
 
-    protected int age;
-    protected Date bornDate;
-    protected Address address;
+    private int age;
+    private Date bornDate;
+    private Address address;
 
-    protected Person() {
+    public Person(){
+        //default
+    }
+    //TODO: nalezy zaimlemetwac liczneie wieku na podstawie daty urodzin
+
+    /**
+     *
+     * @param firstName
+     * @param lastName
+     * @param sPESEL
+     * @param age - nie mozna przesylac wieku w parametrze
+     *            moze dojsc do oszustw i wiek != wiek(wg daty urodzin)
+     * @param bornDate
+     * @param address
+     */
+    public Person(String firstName, String lastName, String sPESEL, int age, Date bornDate, Address address) {
+        setAddress(address);
+        setAge(age);
+        setBornDate(bornDate);
+        setsPESEL(sPESEL);
+        setFirstName(firstName);
+        setLastName(lastName);
     }
 
-    protected String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    protected void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    protected String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    protected void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    protected String getsPESEL() {
+    public String getsPESEL() {
         return sPESEL;
     }
 
-    protected void setsPESEL(String sPESEL) {
+    public void setsPESEL(String sPESEL) {
         this.sPESEL = sPESEL;
     }
 
-    protected int getAge() {
+    public int getAge() {
         return age;
     }
 
-    protected void setAge(int age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
-    protected Date getBornDate() {
+    public Date getBornDate() {
         return bornDate;
     }
 
-    protected void setBornDate(Date bornDate) {
+    public void setBornDate(Date bornDate) {
         this.bornDate = bornDate;
     }
 
-    protected Address getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    protected void setAddress(Address address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }

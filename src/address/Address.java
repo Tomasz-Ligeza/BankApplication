@@ -10,7 +10,15 @@ public class Address {
     private String postalCode;
 
     public Address() {
-        //TODO: implementacja konstruktora, wywolac settery (?)
+        //default
+    }
+
+    public Address(String country, String city, String street, String houseNr, String postalCode){
+        setCity(city);
+        setCountry(country);
+        setHouseNr(houseNr);
+        setPostalCode(postalCode);
+        setStreet(street);
     }
 
     public String getCountry() {
