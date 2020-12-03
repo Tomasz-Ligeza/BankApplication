@@ -1,30 +1,44 @@
 package person.Employee;
 
+import address.Address;
+import auto.Generator;
 import person.Person;
 
+import java.util.Date;
 import java.util.Objects;
 
-public class Employee extends Person {
-    private String sID;
+public class Employee extends Person implements Generator {
+    private final String sID;
     private String password;
 
-    public Employee() {
+    public Employee(String sID) {
+        //default
+        this.sID = setsID();
     }
 
+    public Employee(String firstName, String lastName, String sPESEL, int age, Date bornDate, Address address){
+        super(firstName, lastName, sPESEL, age, bornDate, address);
+        this.sID = setsID();
+        setPassword();
+    }
     public String getsID() {
         return sID;
     }
 
-    public void setsID(String sID) {
-        this.sID = sID;
+    public String setsID() {
+        String uniqueID = setId();
+        return uniqueID;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword() {
+        this.password = setPass();
+    }
+    public void setPassword(String newPass){
+        this.password = newPass;
     }
 
     @Override

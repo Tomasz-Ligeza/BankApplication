@@ -1,7 +1,12 @@
 package person;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import address.Address;
+import auto.calculators.AgeCalculator;
+
+import static auto.calculators.AgeCalculator.calculateAge;
 
 /**
  * pola protected sa widzialne w calym pakaiecie
@@ -11,62 +16,73 @@ import address.Address;
  */
 
 public abstract class Person {
-    protected String firstName;
-    protected String lastName;
-    protected String sPESEL;
+    private String firstName;
+    private String lastName;
+    private String sPESEL;
 
-    protected int age;
-    protected Date bornDate;
-    protected Address address;
+    private int age;
+    private LocalDate bornDate;
+    private Address address;
 
-    protected Person() {
+    public Person(){
+        //default
     }
 
-    protected String getFirstName() {
+    public Person(String firstName, String lastName, String sPESEL, LocalDate bornDate, Address address) {
+        setAddress(address);
+        setBornDate(bornDate);
+        setAge(this.bornDate);
+        setsPESEL(sPESEL);
+        setFirstName(firstName);
+        setLastName(lastName);
+    }
+
+    public String getFirstName() {
         return firstName;
     }
 
-    protected void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    protected String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    protected void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    protected String getsPESEL() {
+    public String getsPESEL() {
         return sPESEL;
     }
 
-    protected void setsPESEL(String sPESEL) {
+    public void setsPESEL(String sPESEL) {
         this.sPESEL = sPESEL;
     }
 
-    protected int getAge() {
+    public int getAge() {
         return age;
     }
 
-    protected void setAge(int age) {
+    public void setAge(LocalDate bornDate) {
+        int age = calculateAge(bornDate);
         this.age = age;
     }
 
-    protected Date getBornDate() {
+    public LocalDate getBornDate() {
         return bornDate;
     }
 
-    protected void setBornDate(Date bornDate) {
+    public void setBornDate(LocalDate bornDate) {
         this.bornDate = bornDate;
     }
 
-    protected Address getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    protected void setAddress(Address address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }
