@@ -9,6 +9,7 @@ import address.Address;
  * a nie byly widziane globalnie
  * modyfiator private ogranicza widzialnosc pol jedynie do tej klasy
  */
+
 public abstract class Person {
     protected String firstName;
     protected String lastName;
