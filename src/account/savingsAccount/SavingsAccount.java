@@ -7,6 +7,6 @@ public class SavingsAccount extends Account {
 
     //ctors
 
-    boolean getStatusOfTarget() { return targetBalance <= getBalance(); }
-    void setTargetBalance(double targetBalance) { this.targetBalance = targetBalance; }
+    public boolean getStatusOfTarget() { return targetBalance <= getBalance(); }
+    public void setTargetBalance(double targetBalance) { this.targetBalance = targetBalance; }
 }
