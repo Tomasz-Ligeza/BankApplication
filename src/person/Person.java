@@ -8,13 +8,6 @@ import auto.calculators.AgeCalculator;
 
 import static auto.calculators.AgeCalculator.calculateAge;
 
-/**
- * pola protected sa widzialne w calym pakaiecie
- * jest to jednak jedyne rozwiazanie zeby byly widoczne w podklasach i
- * a nie byly widziane globalnie
- * modyfiator private ogranicza widzialnosc pol jedynie do tej klasy
- */
-
 public abstract class Person {
     private String firstName;
     private String lastName;
