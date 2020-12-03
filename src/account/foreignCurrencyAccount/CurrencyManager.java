@@ -8,7 +8,8 @@ public class CurrencyManager {
     static {
         currencyValue.put(Currency.PLN, 1.d);
         currencyValue.put(Currency.USD, 3.5);
-        currencyValue.put(Currency.EUR, 4.20);
+        currencyValue.put(Currency.EUR, 4.50);
+        currencyValue.put(Currency.GBP, 4.97);
     }
 
     public static Currency[] getCurrencies() {
@@ -22,6 +23,7 @@ public class CurrencyManager {
     enum Currency {
         PLN,
         USD,
-        EUR
+        EUR,
+        GBP,
     };
 }

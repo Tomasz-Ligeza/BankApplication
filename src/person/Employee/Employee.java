@@ -4,6 +4,7 @@ import address.Address;
 import auto.Generator;
 import person.Person;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -16,8 +17,8 @@ public class Employee extends Person implements Generator {
         this.sID = setsID();
     }
 
-    public Employee(String firstName, String lastName, String sPESEL, int age, Date bornDate, Address address){
-        super(firstName, lastName, sPESEL, age, bornDate, address);
+    public Employee(String firstName, String lastName, String sPESEL, LocalDate bornDate, Address address){
+        super(firstName, lastName, sPESEL, bornDate, address);
         this.sID = setsID();
         setPassword();
     }
