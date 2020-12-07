@@ -4,11 +4,9 @@ import address.Address;
 import auto.Generator;
 import person.Person;
 
-import java.security.SecureRandom;
+import java.security.SecureRandom; //where do we use this
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.Objects; //where do we use this
 
 public class Customer extends Person implements Generator {
     private String login;
