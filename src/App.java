@@ -1,16 +1,15 @@
+import graphicUserInterface.LoginMenu;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 
 public class App {
     private JButton button1;
     private JPanel panelMain;
 
-    /**
-     * tutaj komentarze zostawaia niezlykozak
-     * elo jebac pis
-     */
     public App() {
         button1.addActionListener(new ActionListener() {
             @Override
@@ -20,8 +19,11 @@ public class App {
         });
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("BankApplication");
+    public static void main(String[] args) throws IOException {
+
+        LoginMenu loginMenu = new LoginMenu();
+
+        /*JFrame frame = new JFrame("BankApplication");
         frame.setContentPane(new App().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //frame.pack();
@@ -30,7 +32,7 @@ public class App {
         int screenHeight = screenSize.height;
         frame.setLocation(screenWidth/2, screenHeight/2);
         frame.setSize(screenWidth/2, screenHeight/2);
-        frame.setVisible(true);
+        frame.setVisible(true);*/
     }
 
 

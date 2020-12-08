@@ -4,9 +4,11 @@ import address.Address;
 import auto.Generator;
 import person.Person;
 
-import java.security.SecureRandom; //where do we use this
+import java.security.SecureRandom;
 import java.time.LocalDate;
-import java.util.Objects; //where do we use this
+import java.util.Date;
+import java.util.Objects;
+import java.util.UUID;
 
 public class Customer extends Person implements Generator {
     private String login;
@@ -18,7 +20,7 @@ public class Customer extends Person implements Generator {
         //default
         this.sID = setsID();
     }
-    public Customer(String firstName, String lastName, String sPESEL, int age, LocalDate bornDate, Address address, String login, int pin ) {
+    public Customer(String firstName, String lastName, String sPESEL, LocalDate bornDate, Address address, String login, int pin ) {
         super(firstName, lastName, sPESEL, bornDate, address);
         this.sID = setsID();
         setLogin(login);
