@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
 
-public class LoginMenu {
+public class LoginMenu extends JFrame{
 
     JPanel loginPanel;
     JRadioButton customerRadioButton;
@@ -19,33 +19,22 @@ public class LoginMenu {
     JButton loginButton;
 
     public LoginMenu() throws IOException {
-        JFrame frame = new JFrame("Login Menu");
 
-        /*
-        can add if-else, about customers internet connection
-        but imo if customer doesnt have internet connecton he shouldnt be able
-        to log in
-         */
         URL iconURL = new URL("https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png");
         Image icon = ImageIO.read(iconURL);
-        frame.setIconImage(new ImageIcon(icon).getImage());
-
-        /*loginPanel.add(customerRadioButton);
-        loginPanel.add(workerRadioButton);
-        loginPanel.add(passwordField1);
-        loginPanel.add(formattedTextField1);
-        loginPanel.add(createAccountButton);
-        loginPanel.add(loginButton);*/
-
-        frame.setContentPane(loginPanel);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        this.setIconImage(new ImageIcon(icon).getImage());
+        this.setTitle("Your Bank, Welcome!");
+        this.setContentPane(loginPanel);
         int screenWidth = screenSize.width;
         int screenHeight = screenSize.height;
-        frame.setLocation(screenWidth/2, screenHeight/2);
-        frame.setSize(screenWidth/2, screenHeight/2);
-        //frame.pack();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        this.setLocation(screenWidth/4, screenHeight/4);
+        this.setSize(screenWidth/2, screenHeight/2);
+        //this.pack();
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setVisible(true);
 
         loginButton.addActionListener(new ActionListener() {
             @Override
