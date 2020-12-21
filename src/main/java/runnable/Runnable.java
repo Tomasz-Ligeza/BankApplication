@@ -1,28 +1,16 @@
 package runnable;
 
 import graphicUserInterface.LoginMenu;
+import graphicUserInterface.StartPage;
+
 import java.io.IOException;
 
 public class Runnable {
 
     public static void main(String[] args) throws IOException {
 
-        LoginMenu loginMenu = new LoginMenu();
+        //new LoginMenu();
+        new StartPage();
+        //TODO: create singleton for menu
     }
 }
-//TODO: need to pack whole src
-/*
-src-|
-    |
-    |->Main-|
-            |->java-|
-                    |->all packages
-
-src-|
-    |
-    |->Test-|
-            |->java-|
-                    |->all packages (test)
-
-takie cos powinno byc gwoli scislosci
- */
