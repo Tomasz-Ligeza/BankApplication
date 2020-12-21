@@ -1,4 +1,4 @@
-package main;
+package runnable;
 
 import graphicUserInterface.LoginMenu;
 import java.io.IOException;
