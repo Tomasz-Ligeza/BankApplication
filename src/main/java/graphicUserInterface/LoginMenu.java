@@ -26,7 +26,7 @@ public class LoginMenu extends JFrame{
 
         this.setIconImage(new ImageIcon(icon).getImage());
         this.setTitle("Your Bank, Welcome!");
-        this.setContentPane(loginPanel);
+        this.add(loginPanel);
         int screenWidth = screenSize.width;
         int screenHeight = screenSize.height;
         this.setLocation(screenWidth/4, screenHeight/4);
