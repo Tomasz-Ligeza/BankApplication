@@ -1,5 +1,6 @@
 package runnable;
 
+import graphicUserInterface.CreateAccountMenu;
 import graphicUserInterface.LoginMenu;
 import graphicUserInterface.StartPage;
 
@@ -11,6 +12,8 @@ public class Runnable {
 
         //new LoginMenu();
         new StartPage();
+        //new CreateAccountMenu();
+
         //TODO: create singleton for menu
     }
 }

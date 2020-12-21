@@ -1,5 +1,7 @@
 package graphicUserInterface;
 
+import hardwareSettings.WindowActions;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,7 +10,8 @@ import java.io.IOException;
 
 public class StartPage
         extends JFrame
-        implements ActionListener {
+        implements ActionListener,
+        WindowActions {
 
     private JButton logInButton;
     private JButton createAccountButton;
@@ -16,12 +19,13 @@ public class StartPage
 
     public StartPage(){
 
-        ImageIcon icon = new ImageIcon("bank_logo.png");
+        WindowActions.setUp(this);
+        /*WindowActions.setBankLogoFrame(this);
+        WindowActions.centreWindow(this);
+        WindowActions.setHalfScreenSize(this);*/
 
         this.setContentPane(startPagePanel);
-        this.setSize(420,500);
         this.setResizable(false);
-        this.setIconImage(icon.getImage());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
 

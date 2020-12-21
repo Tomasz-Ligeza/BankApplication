@@ -1,5 +1,7 @@
 package graphicUserInterface;
 
+import hardwareSettings.WindowActions;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +12,8 @@ import java.net.URL;
 
 public class LoginMenu
         extends JFrame
-        implements ActionListener{
+        implements ActionListener,
+        WindowActions {
 
     JPanel loginPanel;
     JRadioButton customerRadioButton;
@@ -21,19 +24,13 @@ public class LoginMenu
 
     public LoginMenu() throws IOException {
 
-        URL iconURL = new URL("https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png");
-        Image icon = ImageIO.read(iconURL);
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int screenWidth = screenSize.width;
-        int screenHeight = screenSize.height;
+        WindowActions.setBankLogoFrame(this);
+        WindowActions.centreWindow(this);
+        WindowActions.setHalfScreenSize(this);
 
-        this.setIconImage(new ImageIcon(icon).getImage());
         this.setTitle("Your Bank, Welcome!");
         this.setContentPane(loginPanel);
-        this.setLocation(screenWidth/4, screenHeight/4);
-        this.setSize(screenWidth/2, screenHeight/2);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setResizable(false);
         this.setVisible(true);
 
         ButtonGroup group = new ButtonGroup();
