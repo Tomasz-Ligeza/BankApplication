@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class CreateAccountMenu
         extends JFrame
@@ -25,6 +26,7 @@ public class CreateAccountMenu
     private JTextField textField7;
     private JTextField textField8;
     private JButton button1;
+    private JButton addButton;
 
     public CreateAccountMenu(){
 
@@ -45,11 +47,24 @@ public class CreateAccountMenu
             comboBox3.addItem(i);
 
         button1.addActionListener(this);
+        button1.setFocusable(false);
+
+        addButton.addActionListener(this);
+        addButton.setFocusable(false);
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == addButton) {
+            JFileChooser fileChooser = new JFileChooser();
+            int res = fileChooser.showOpenDialog(null);
+
+            if(res == JFileChooser.APPROVE_OPTION){
+                File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+
+            }
+        }
 
     }
 }
