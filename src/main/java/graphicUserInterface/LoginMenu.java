@@ -29,13 +29,7 @@ public class LoginMenu
         WindowActions.setHalfScreenSize(this);
 
         this.setTitle("Your Bank, Welcome!");
-        this.add(loginPanel);
-        //this.setContentPane(loginPanel);
-        int screenWidth = screenSize.width;
-        int screenHeight = screenSize.height;
-        this.setLocation(screenWidth/4, screenHeight/4);
-        this.setSize(screenWidth/2, screenHeight/2);
-        //this.pack();
+        this.setContentPane(loginPanel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
 
@@ -44,6 +38,8 @@ public class LoginMenu
         group.add(workerRadioButton);
         customerRadioButton.addActionListener(this);
         workerRadioButton.addActionListener(this);
+        customerRadioButton.setFocusable(false);
+        workerRadioButton.setFocusable(false);
 
         loginButton.setFocusable(false);
         loginButton.addActionListener(this);

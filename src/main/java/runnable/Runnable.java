@@ -11,8 +11,8 @@ public class Runnable {
     public static void main(String[] args) throws IOException {
 
         //new LoginMenu();
-        //new StartPage();
-        new CreateAccountMenu();
+        new StartPage();
+        //new CreateAccountMenu();
 
         //TODO: create singleton for menu
     }
