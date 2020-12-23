@@ -16,7 +16,7 @@ public class EmployeesDatabase {
     }
 
     private EmployeesDatabase() {
-        employees = EmployeesFromFileReader.readCustomersDataFromFile();
+        employees = EmployeesFromFileReader.readEmployeesDataFromFile();
     }
 
     /**
@@ -25,7 +25,7 @@ public class EmployeesDatabase {
      * have to figure it out after implementing other components of system
      * //check CustomersDataBase also
      */
-    public Iterable<Employee> getEmployees() {
+    public HashSet<Employee> getEmployees() {
         return employees;
     }
 
@@ -46,6 +46,4 @@ public class EmployeesDatabase {
     public boolean addEmployee(Employee employee) {
         return employees.add(employee);
     }
-
-
 }

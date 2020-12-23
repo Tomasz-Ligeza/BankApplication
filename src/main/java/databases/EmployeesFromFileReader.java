@@ -11,11 +11,11 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class EmployeesFromFileReader {
-    public static HashSet<Employee> readCustomersDataFromFile() {
+    public static HashSet<Employee> readEmployeesDataFromFile() {
         HashSet<Employee> customersSet = new HashSet<Employee>();
         Scanner in;
         try {
-            in = new Scanner(Path.of("../../customers.data"), StandardCharsets.UTF_8);
+            in = new Scanner(Path.of(System.getProperty("user.dir"),"\\src\\main\\resources\\employees.data"), StandardCharsets.UTF_8);
             while(in.hasNext()) {
                 Employee employee = readOneEmployeeData(in);
                 if(employee != null)
@@ -30,7 +30,6 @@ public class EmployeesFromFileReader {
         return customersSet;
     }
 
-
     private static Employee readOneEmployeeData(Scanner in) {
         Employee employee = new Employee();
         try {
@@ -42,7 +41,7 @@ public class EmployeesFromFileReader {
 
             //localData
             String s = in.next();
-            LocalDate bornDate = LocalDate.of(Integer.getInteger(s.substring(0, 3)), Integer.getInteger(s.substring(5, 6)), Integer.getInteger(s.substring(8, 9)));
+            LocalDate bornDate = LocalDate.of(Integer.parseInt(s.substring(0, 4)), Integer.parseInt(s.substring(5, 7)), Integer.parseInt(s.substring(8, 10)));
             employee.setBornDate(bornDate);
 
             Address a = new Address(in.next(), in.next(), in.next(), in.next(), in.next());

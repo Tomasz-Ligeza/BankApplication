@@ -32,7 +32,7 @@ public class CustomersDatabase {
      *
      * @return Iterable<Customer> from Hashset<Customer> customers
      */
-    public Iterable<Customer> getEmployees() { return customers; }
+    public HashSet<Customer> getEmployees() { return customers; }
 
     /**
      *
