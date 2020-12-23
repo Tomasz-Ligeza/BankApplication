@@ -13,12 +13,12 @@ import java.util.UUID;
 public class Customer extends Person implements Generator {
     private String login;
     private String password;    //poczatkowe haslo jest generowane automatycznie, mozna zmienic w zmienDane();
-    private final String sID;
+    private String sID;
     private int iPIN;
 
     public Customer(){
         //default
-        this.sID = setsID();
+        //this.sID = setsID();
     }
     public Customer(String firstName, String lastName, String sPESEL, LocalDate bornDate, Address address, String login, int pin ) {
         super(firstName, lastName, sPESEL, bornDate, address);
@@ -50,6 +50,10 @@ public class Customer extends Person implements Generator {
 
     public String getsID() {
         return sID;
+    }
+
+    public void setsID(String sID) {
+        this.sID = sID;
     }
 
     private String setsID() {
