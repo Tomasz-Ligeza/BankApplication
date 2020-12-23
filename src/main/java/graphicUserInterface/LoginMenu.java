@@ -1,5 +1,7 @@
 package graphicUserInterface;
 
+import graphicUserInterface.mainMenu.MainMenuCustomer;
+import graphicUserInterface.mainMenu.MainMenuEmployee;
 import hardwareSettings.WindowActions;
 
 import javax.imageio.ImageIO;
@@ -47,6 +49,14 @@ public class LoginMenu
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == customerRadioButton){
+            this.dispose();
+            MainMenuCustomer mmc = new MainMenuCustomer();
+        }
 
+        else if(e.getSource() == workerRadioButton) {
+            this.dispose();
+            MainMenuEmployee mme = new MainMenuEmployee();
+        }
     }
 }
