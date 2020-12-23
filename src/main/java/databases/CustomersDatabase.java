@@ -3,11 +3,26 @@ package databases;
 import person.Customer.Customer;
 import person.Employee.Employee;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.util.HashSet;
+import java.util.Scanner;
 
 
 public class CustomersDatabase {
-    HashSet<Customer> customers = new HashSet<>();
+    private static CustomersDatabase customersDatabase = null;
+    HashSet<Customer> customers;
+
+    public static CustomersDatabase getInstance() {
+        if(customersDatabase == null)
+            customersDatabase = new CustomersDatabase();
+        return customersDatabase;
+    }
+
+    private CustomersDatabase() {
+        customers = CustomersFromFileReader.readCustomersDataFromFile();
+    };
 
     /**
      * probably this function have to be deleted, because it does not match encapsulation
@@ -33,8 +48,5 @@ public class CustomersDatabase {
         }
         else
             return false;
-
-
     }
-
 }

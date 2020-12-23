@@ -29,7 +29,13 @@ public class LoginMenu
         WindowActions.setHalfScreenSize(this);
 
         this.setTitle("Your Bank, Welcome!");
-        this.setContentPane(loginPanel);
+        this.add(loginPanel);
+        //this.setContentPane(loginPanel);
+        int screenWidth = screenSize.width;
+        int screenHeight = screenSize.height;
+        this.setLocation(screenWidth/4, screenHeight/4);
+        this.setSize(screenWidth/2, screenHeight/2);
+        //this.pack();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
 
