@@ -18,9 +18,10 @@ import java.util.Set;
 public class CustomersFromFileReader {
     public static HashSet<Customer> readCustomersDataFromFile() {
         HashSet<Customer> customersSet = new HashSet<Customer>();
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
         Scanner in;
         try {
-            in = new Scanner(Path.of("../../customers.data"), StandardCharsets.UTF_8);
+            in = new Scanner(Path.of(System.getProperty("user.dir"),"\\src\\main\\resources\\customers.data"), StandardCharsets.UTF_8);
             while(in.hasNext()) {
                 Customer customer = readOneCustomersData(in);
                 if(customer != null)
@@ -49,7 +50,7 @@ public class CustomersFromFileReader {
 
             //localData
             String s = in.next();
-            LocalDate bornDate = LocalDate.of(Integer.getInteger(s.substring(0, 3)), Integer.getInteger(s.substring(5, 6)), Integer.getInteger(s.substring(8, 9)));
+            LocalDate bornDate = LocalDate.of(Integer.parseInt(s.substring(0, 4)), Integer.parseInt(s.substring(5, 7)), Integer.parseInt(s.substring(8, 10)));
             customer.setBornDate(bornDate);
 
             Address a = new Address(in.next(), in.next(), in.next(), in.next(), in.next());

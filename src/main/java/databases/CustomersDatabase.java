@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class CustomersDatabase {
     private static CustomersDatabase customersDatabase = null;
-    HashSet<Customer> customers;
+    private HashSet<Customer> customers;
 
     public static CustomersDatabase getInstance() {
         if(customersDatabase == null)
@@ -32,7 +32,7 @@ public class CustomersDatabase {
      *
      * @return Iterable<Customer> from Hashset<Customer> customers
      */
-    public Iterable<Customer> getEmployees() { return customers; }
+    public HashSet<Customer> getEmployees() { return customers; }
 
     /**
      *
@@ -42,11 +42,6 @@ public class CustomersDatabase {
      *     *false means customer already exist in database
      */
     public boolean addCustomer(Customer customer) {
-        if (!customers.contains(customer)) {
-            customers.add(customer);
-            return true;
-        }
-        else
-            return false;
+        return customers.add(customer);
     }
 }

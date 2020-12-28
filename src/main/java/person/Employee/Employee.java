@@ -9,12 +9,11 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Employee extends Person implements Generator {
-    private final String sID;
+    private String sID;
     private String password;
 
-    public Employee(String sID) {
+    public Employee() {
         //default
-        this.sID = setsID();
     }
 
     public Employee(String firstName, String lastName, String sPESEL, LocalDate bornDate, Address address){
@@ -25,6 +24,8 @@ public class Employee extends Person implements Generator {
     public String getsID() {
         return sID;
     }
+
+    public void setsID(String sID) { this.sID = sID; }
 
     public String setsID() {
         String uniqueID = setId();
