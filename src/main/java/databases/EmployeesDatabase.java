@@ -6,9 +6,18 @@ import java.util.HashSet;
 import java.util.List;
 
 public class EmployeesDatabase {
+    private static EmployeesDatabase employeesDatabase = null;
     private HashSet<Employee> employees = new HashSet<>();
 
-    //ctors
+    public static EmployeesDatabase getInstance() {
+        if(employeesDatabase == null)
+            employeesDatabase = new EmployeesDatabase();
+        return employeesDatabase;
+    }
+
+    private EmployeesDatabase() {
+        employees = EmployeesFromFileReader.readEmployeesDataFromFile();
+    }
 
     /**
      * probably this function have to be deleted, because it does not match encapsulation
@@ -16,7 +25,7 @@ public class EmployeesDatabase {
      * have to figure it out after implementing other components of system
      * //check CustomersDataBase also
      */
-    public Iterable<Employee> getEmployees() {
+    public HashSet<Employee> getEmployees() {
         return employees;
     }
 
@@ -35,14 +44,6 @@ public class EmployeesDatabase {
      *     *false means employee already exist in database
      */
     public boolean addEmployee(Employee employee) {
-        if (!employees.contains(employee)) {
-            employees.add(employee);
-            return true;
-        }
-        else
-            return false;
-
+        return employees.add(employee);
     }
-
-
 }
