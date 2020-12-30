@@ -3,11 +3,12 @@ package databases;
 import person.Employee.Employee;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 public class EmployeesDatabase {
     private static EmployeesDatabase employeesDatabase = null;
-    private HashSet<Employee> employees = new HashSet<>();
+    private List<Employee> employees;
 
     public static EmployeesDatabase getInstance() {
         if(employeesDatabase == null)
@@ -25,7 +26,7 @@ public class EmployeesDatabase {
      * have to figure it out after implementing other components of system
      * //check CustomersDataBase also
      */
-    public HashSet<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 

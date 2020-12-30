@@ -52,6 +52,9 @@ out/
 # Maven
 target/*
 
+# DATA
+# src/main/resources/*
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 

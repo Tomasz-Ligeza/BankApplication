@@ -6,8 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ForeignCurrencyAccount extends Account {
-
+    CurrencyManager.Currency currency;
     //ctors
+
+
 
     /**
      *
@@ -15,6 +17,11 @@ public class ForeignCurrencyAccount extends Account {
      * @return double value of amount of money in newCurrency
      */
     public double calculateToAnotherCurrency(CurrencyManager.Currency newCurrency) {
-        return getBalance() * CurrencyManager.getExchangeRateOf(newCurrency);
+        return getBalance() * (CurrencyManager.getExchangeRateOf(currency) / CurrencyManager.getExchangeRateOf(newCurrency));
     }
+
+    public void setCurrency(CurrencyManager.Currency currency) {
+        this.currency = currency;
+    }
+    public CurrencyManager.Currency getCurrency() {return this.currency; }
 }
