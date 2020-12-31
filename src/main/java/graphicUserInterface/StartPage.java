@@ -16,7 +16,7 @@ public class StartPage
     private JButton createAccountButton;
     private JPanel startPagePanel;
 
-    public StartPage(){
+    public StartPage() throws IOException {
 
         WindowActions.setUp(this);
         /*WindowActions.setBankLogoFrame(this);
@@ -50,7 +50,11 @@ public class StartPage
         }
         else if(e.getSource() == createAccountButton){
             this.dispose();
-            CreateAccountMenu cam = new CreateAccountMenu();
+            try {
+                CreateAccountMenu cam = new CreateAccountMenu();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         }
     }
 }

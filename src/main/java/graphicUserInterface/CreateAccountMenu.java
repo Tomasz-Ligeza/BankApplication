@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 public class CreateAccountMenu
         extends JFrame
@@ -28,7 +29,7 @@ public class CreateAccountMenu
     private JButton button1;
     private JButton addButton;
 
-    public CreateAccountMenu(){
+    public CreateAccountMenu() throws IOException {
 
         WindowActions.setUp(this);
         /*WindowActions.setBankLogoFrame(this);

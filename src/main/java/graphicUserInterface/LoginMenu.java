@@ -51,12 +51,20 @@ public class LoginMenu
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == customerRadioButton){
             this.dispose();
-            MainMenuCustomer mmc = new MainMenuCustomer();
+            try {
+                MainMenuCustomer mmc = new MainMenuCustomer();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         }
 
         else if(e.getSource() == workerRadioButton) {
             this.dispose();
-            MainMenuEmployee mme = new MainMenuEmployee();
+            try {
+                MainMenuEmployee mme = new MainMenuEmployee();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         }
     }
 }
