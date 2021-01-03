@@ -1,10 +1,14 @@
 package hardwareSettings;
 
+import graphicUserInterface.StartPage;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 
 public interface WindowActions {
 
@@ -36,6 +40,30 @@ public interface WindowActions {
         centreWindow(frame);
         setHalfScreenSize(frame);
         setBankLogoFrame(frame);
+    }
+
+    public static void addMenuBar(JFrame mainFrame, HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal){
+        JMenuBar menuBar = new JMenuBar();
+        JButton logOutButton = new JButton("Log OUT");
+
+        logOutButton.setFocusable(false);
+        logOutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainFrame.dispose();
+                //System.out.println("CLICK");
+                try {
+                    new StartPage(loginInfoCustomerOriginal, loginInfoEmployeeOriginal);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+        });
+
+        menuBar.add(logOutButton);
+        menuBar.setVisible(true);
+
+        mainFrame.setJMenuBar(menuBar);
     }
 
 }

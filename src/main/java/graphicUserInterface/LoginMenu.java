@@ -7,6 +7,8 @@ import hardwareSettings.WindowActions;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -99,7 +101,7 @@ public class LoginMenu
                     loginInfoCustomer.get(loginField.getText()).equals(String.valueOf(passwordField.getPassword()))){
                     this.dispose();
                     try {
-                        new MainMenuCustomer();
+                        new MainMenuCustomer(loginInfoCustomer, loginInfoEmployee);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -113,7 +115,7 @@ public class LoginMenu
                     loginInfoEmployee.get(loginField.getText()).equals(String.valueOf(passwordField.getPassword()))){
                     this.dispose();
                     try{
-                        new MainMenuEmployee();
+                        new MainMenuEmployee(loginInfoCustomer, loginInfoEmployee);
                     }catch(IOException ioException){
                         ioException.printStackTrace();
                     }

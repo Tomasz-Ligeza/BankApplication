@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class MainMenuCustomer
         extends JFrame
@@ -24,10 +25,16 @@ public class MainMenuCustomer
     private JLabel balancyDisplay;
     private JComboBox chooseAccount;
     private JPanel balancePanel;
+    HashMap<String, String> loginInfoCustomer;
+    HashMap<String, String> loginInfoEmployee;
 
-    public MainMenuCustomer() throws IOException {
+    public MainMenuCustomer(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
+
+        loginInfoCustomer = loginInfoCustomerOriginal;
+        loginInfoEmployee = loginInfoEmployeeOriginal;
 
         WindowActions.setUp(this);
+        WindowActions.addMenuBar(this, loginInfoCustomerOriginal, loginInfoEmployeeOriginal);
 
         makeTransferButton.setFocusable(false);
         checkHistoryButton.setFocusable(false);

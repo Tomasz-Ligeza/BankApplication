@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class MainMenuEmployee
         extends JFrame
@@ -22,10 +23,16 @@ public class MainMenuEmployee
     private JPanel panelPicture;
     private JLabel pictureLabel;
     private JLabel employeeHello;
+    HashMap<String, String> loginInfoCustomer;
+    HashMap<String, String> loginInfoEmployee;
 
-    public MainMenuEmployee() throws IOException {
+    public MainMenuEmployee(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
+
+        loginInfoCustomer = loginInfoCustomerOriginal;
+        loginInfoEmployee = loginInfoEmployeeOriginal;
 
         WindowActions.setUp(this);
+        WindowActions.addMenuBar(this, loginInfoCustomerOriginal, loginInfoEmployeeOriginal);
 
         blockButton.setFocusable(false);
         acceptButton.setFocusable(false);
