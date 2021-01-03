@@ -36,6 +36,7 @@ public class MainMenuCustomer
         changeDataButton.setFocusable(false);
         createNewAccountButton.setFocusable(false);
         createPeriodicPaymentButton.setFocusable(false);
+        chooseAccount.setFocusable(false);
 
         this.setContentPane(panel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
