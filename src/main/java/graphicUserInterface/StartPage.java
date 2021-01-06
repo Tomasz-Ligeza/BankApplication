@@ -3,10 +3,10 @@ package graphicUserInterface;
 import hardwareSettings.WindowActions;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class StartPage
         extends JFrame
@@ -17,7 +17,13 @@ public class StartPage
     private JButton createAccountButton;
     private JPanel startPagePanel;
 
-    public StartPage(){
+    HashMap<String, String> loginInfoCustomer;
+    HashMap<String, String> loginInfoEmployee;
+
+    public StartPage(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
+
+        loginInfoCustomer = loginInfoCustomerOriginal;
+        loginInfoEmployee = loginInfoEmployeeOriginal;
 
         WindowActions.setUp(this);
         /*WindowActions.setBankLogoFrame(this);
@@ -38,20 +44,23 @@ public class StartPage
         createAccountButton.addActionListener(this);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == logInButton){
             try {
                 this.dispose();
-                LoginMenu loginMenu = new LoginMenu();
+                LoginMenu loginMenu = new LoginMenu(loginInfoCustomer, loginInfoEmployee);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
         }
         else if(e.getSource() == createAccountButton){
             this.dispose();
-            CreateAccountMenu cam = new CreateAccountMenu();
+            try {
+                CreateAccountMenu cam = new CreateAccountMenu(loginInfoCustomer, loginInfoEmployee);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         }
     }
 }

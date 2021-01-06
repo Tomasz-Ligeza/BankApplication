@@ -1,8 +1,7 @@
 package runnable;
 
-import graphicUserInterface.CreateAccountMenu;
-import graphicUserInterface.LoginMenu;
-import graphicUserInterface.StartPage;
+import graphicUserInterface.*;
+import graphicUserInterface.mainMenu.MainMenuCustomer;
 
 import java.io.IOException;
 
@@ -10,10 +9,11 @@ public class Runnable {
 
     public static void main(String[] args) throws IOException {
 
-        //new LoginMenu();
-        new StartPage();
-        //new CreateAccountMenu();
+        ONLY_TEST_OF_LOGGING_EMPLOYEE loginInfoEmployee = new ONLY_TEST_OF_LOGGING_EMPLOYEE();
+        ONLY_TEST_OF_LOGGING_CUSTOMER loginInfoCustomer = new ONLY_TEST_OF_LOGGING_CUSTOMER();
 
-        //TODO: create singleton for menu
+        new StartPage(loginInfoCustomer.getLoginInfo(), loginInfoEmployee.getLoginInfo());
+
     }
+
 }

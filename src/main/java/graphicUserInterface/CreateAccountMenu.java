@@ -7,6 +7,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 
 public class CreateAccountMenu
         extends JFrame
@@ -26,9 +28,14 @@ public class CreateAccountMenu
     private JTextField textField7;
     private JTextField textField8;
     private JButton button1;
-    private JButton addButton;
+    private JButton cancelButton;
+    HashMap<String, String> loginInfoCustomer;
+    HashMap<String, String> loginInfoEmployee;
 
-    public CreateAccountMenu(){
+    public CreateAccountMenu(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
+
+        loginInfoCustomer =loginInfoCustomerOriginal;
+        loginInfoEmployee = loginInfoEmployeeOriginal;
 
         WindowActions.setUp(this);
         /*WindowActions.setBankLogoFrame(this);
@@ -49,22 +56,21 @@ public class CreateAccountMenu
         button1.addActionListener(this);
         button1.setFocusable(false);
 
-        addButton.addActionListener(this);
-        addButton.setFocusable(false);
+        cancelButton.setFocusable(false);
+        cancelButton.addActionListener(this);
+
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == addButton) {
-            JFileChooser fileChooser = new JFileChooser();
-            int res = fileChooser.showOpenDialog(null);
-
-            if(res == JFileChooser.APPROVE_OPTION){
-                File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
-
+        if(e.getSource() == cancelButton){
+            this.dispose();
+            try {
+                new StartPage(loginInfoCustomer, loginInfoEmployee);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
         }
-
     }
 }

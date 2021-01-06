@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="graphicUserInterface.CreateAccountMenu">
-  <grid id="27dc6" binding="camPanel" layout-manager="GridLayoutManager" row-count="10" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="camPanel" layout-manager="GridLayoutManager" row-count="11" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="545" height="500"/>
+      <xy x="20" y="20" width="566" height="500"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -124,7 +124,7 @@
       </component>
       <component id="fb9db" class="javax.swing.JLabel">
         <constraints>
-          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="4" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="City"/>
@@ -132,7 +132,7 @@
       </component>
       <component id="fa658" class="javax.swing.JLabel">
         <constraints>
-          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Postal Code"/>
@@ -140,7 +140,7 @@
       </component>
       <component id="fa2b4" class="javax.swing.JLabel">
         <constraints>
-          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Street"/>
@@ -148,7 +148,7 @@
       </component>
       <component id="4bf38" class="javax.swing.JLabel">
         <constraints>
-          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="House Number"/>
@@ -156,7 +156,7 @@
       </component>
       <component id="fabe4" class="javax.swing.JTextField" binding="textField5" default-binding="true">
         <constraints>
-          <grid row="6" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="6" column="5" row-span="2" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -164,7 +164,7 @@
       </component>
       <component id="dc0" class="javax.swing.JTextField" binding="textField6" default-binding="true">
         <constraints>
-          <grid row="7" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="8" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -172,7 +172,7 @@
       </component>
       <component id="6f5ef" class="javax.swing.JTextField" binding="textField7" default-binding="true">
         <constraints>
-          <grid row="8" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="9" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -180,7 +180,7 @@
       </component>
       <component id="14fe2" class="javax.swing.JTextField" binding="textField8" default-binding="true">
         <constraints>
-          <grid row="9" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="10" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -188,27 +188,19 @@
       </component>
       <component id="4a5a9" class="javax.swing.JButton" binding="button1" default-binding="true">
         <constraints>
-          <grid row="6" column="9" row-span="4" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="9" row-span="4" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <icon value="pencil_green.png"/>
-          <text value=""/>
+          <text value="Register"/>
         </properties>
       </component>
-      <component id="c7264" class="javax.swing.JLabel">
+      <component id="7cc2b" class="javax.swing.JButton" binding="cancelButton" default-binding="true">
         <constraints>
-          <grid row="1" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Add ID photo"/>
-        </properties>
-      </component>
-      <component id="4d7a4" class="javax.swing.JButton" binding="addButton" default-binding="true">
-        <constraints>
-          <grid row="2" column="9" row-span="1" col-span="1" vsize-policy="1" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Add"/>
+          <text value="Cancel"/>
         </properties>
       </component>
     </children>
