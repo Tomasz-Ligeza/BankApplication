@@ -36,7 +36,7 @@ public class CustomersDatabase {
      *
      * @return Iterable<Customer> from Hashset<Customer> customers
      */
-    public List<Customer> getEmployees() { return customers; }
+    public List<Customer> getCustomers() { return customers; }
 
     /**
      *

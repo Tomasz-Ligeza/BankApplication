@@ -34,7 +34,7 @@ public class CreateAccountMenu
 
     public CreateAccountMenu(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
 
-        loginInfoCustomer =loginInfoCustomerOriginal;
+        loginInfoCustomer = loginInfoCustomerOriginal;
         loginInfoEmployee = loginInfoEmployeeOriginal;
 
         WindowActions.setUp(this);

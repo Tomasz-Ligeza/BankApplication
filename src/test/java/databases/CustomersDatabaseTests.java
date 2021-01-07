@@ -8,8 +8,8 @@ public class CustomersDatabaseTests {
     @Test
     public void addingToCustomerDataBaseTest() {
         CustomersDatabase db = CustomersDatabase.getInstance();
-        int previousSize = db.getEmployees().size();
+        int previousSize = db.getCustomers().size();
         db.addCustomer(new Customer());
-        Assertions.assertEquals(previousSize + 1, db.getEmployees().size());
+        Assertions.assertEquals(previousSize + 1, db.getCustomers().size());
     }
 }
