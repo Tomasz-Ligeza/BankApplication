@@ -1,18 +1,18 @@
 package databases;
 
+import account.Account;
 import person.Customer.Customer;
 import person.Employee.Employee;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class CustomersDatabase {
     private static CustomersDatabase customersDatabase = null;
-    private HashSet<Customer> customers;
+    private List<Customer> customers;
 
     public static CustomersDatabase getInstance() {
         if(customersDatabase == null)
@@ -22,6 +22,10 @@ public class CustomersDatabase {
 
     private CustomersDatabase() {
         customers = CustomersFromFileReader.readCustomersDataFromFile();
+        Map<String, List<Account>> accounts = AccountsFromFileReader.readAccountsDataFromFile();
+        for (Customer customer : customers) {
+            customer.setAccounts(accounts.get(customer.getsID()));
+        }
     };
 
     /**
@@ -32,7 +36,7 @@ public class CustomersDatabase {
      *
      * @return Iterable<Customer> from Hashset<Customer> customers
      */
-    public HashSet<Customer> getEmployees() { return customers; }
+    public List<Customer> getCustomers() { return customers; }
 
     /**
      *

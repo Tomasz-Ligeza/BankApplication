@@ -1,24 +1,26 @@
 package person.Customer;
 
+import account.Account;
+import account.savingsAccount.SavingsAccount;
 import address.Address;
 import auto.Generator;
 import person.Person;
 
 import java.security.SecureRandom;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 public class Customer extends Person implements Generator {
     private String login;
     private String password;    //poczatkowe haslo jest generowane automatycznie, mozna zmienic w zmienDane();
     private String sID;
     private int iPIN;
+    private List<Account> accounts;
 
     public Customer(){
         //default
         //this.sID = setsID();
+        accounts = new LinkedList<>();
     }
     public Customer(String firstName, String lastName, String sPESEL, LocalDate bornDate, Address address, String login, int pin ) {
         super(firstName, lastName, sPESEL, bornDate, address);
@@ -26,6 +28,7 @@ public class Customer extends Person implements Generator {
         setLogin(login);
         setPassword();
         setiPIN(pin);
+        accounts = new LinkedList<>();
     }
 
     public String getLogin() {
@@ -67,6 +70,10 @@ public class Customer extends Person implements Generator {
 
     public void setiPIN(int iPIN) {
         this.iPIN = iPIN;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts.addAll(accounts);
     }
 
     @Override

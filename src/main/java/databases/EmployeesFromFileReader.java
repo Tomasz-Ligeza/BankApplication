@@ -8,11 +8,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeesFromFileReader {
-    public static HashSet<Employee> readEmployeesDataFromFile() {
-        HashSet<Employee> customersSet = new HashSet<Employee>();
+    public static List<Employee> readEmployeesDataFromFile() {
+        List<Employee> customersSet = new LinkedList<>();
         Scanner in;
         try {
             in = new Scanner(Path.of(System.getProperty("user.dir"),"\\src\\main\\resources\\employees.data"), StandardCharsets.UTF_8);

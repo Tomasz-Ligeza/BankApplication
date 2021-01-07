@@ -1,5 +1,6 @@
 package databases;
 
+import account.Account;
 import address.Address;
 import person.Customer.Customer;
 
@@ -7,18 +8,14 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 /*
     if we will change our mind about using databases instead of files, just
  */
 public class CustomersFromFileReader {
-    public static HashSet<Customer> readCustomersDataFromFile() {
-        HashSet<Customer> customersSet = new HashSet<Customer>();
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+    public static List<Customer> readCustomersDataFromFile() {
+        List<Customer> customersSet = new LinkedList<Customer>();
         Scanner in;
         try {
             in = new Scanner(Path.of(System.getProperty("user.dir"),"\\src\\main\\resources\\customers.data"), StandardCharsets.UTF_8);

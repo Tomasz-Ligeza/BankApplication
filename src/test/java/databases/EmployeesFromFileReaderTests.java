@@ -5,11 +5,12 @@ import person.Customer.Customer;
 import person.Employee.Employee;
 
 import java.util.HashSet;
+import java.util.List;
 
 public class EmployeesFromFileReaderTests {
     @Test
     public void readingFromFileTest() {
-        HashSet<Employee> employees = EmployeesFromFileReader.readEmployeesDataFromFile();
+        List<Employee> employees = EmployeesFromFileReader.readEmployeesDataFromFile();
         Assertions.assertFalse(employees.isEmpty());
     }
 }

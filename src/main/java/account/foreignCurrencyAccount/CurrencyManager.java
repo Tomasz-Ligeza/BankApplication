@@ -12,15 +12,14 @@ public class CurrencyManager {
         currencyValue.put(Currency.GBP, 4.97);
     }
 
-    public static Currency[] getCurrencies() {
+    public static Currency[] getCurrencies() {       //cos zle tutaj
         return currencyValue.keySet().toArray(new Currency[0]);
     }
-
     public static double getExchangeRateOf(Currency currency) {
         return currencyValue.get(currency);
     }
 
-    enum Currency {
+    public enum Currency {
         PLN,
         USD,
         EUR,

@@ -1,0 +1,42 @@
+ACC
+sID
+accountNumber
+true	7.2
+
+ACC
+sID
+accountNumber
+true	7.2
+
+SA
+sID
+accountNumber
+true	2.0
+3.0
+
+FCA
+sID
+accountNumber
+true	3.0
+EUR
+
+ACC
+00000000
+accountNumber
+true	2000
+
+ACC
+00000000
+accountNumber
+true	14572.53
+
+ACC
+00000000
+accountNumber
+true	0.50
+
+FCA
+00000000
+accountNumber
+true	4.2
+EUR
