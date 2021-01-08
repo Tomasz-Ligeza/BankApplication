@@ -25,16 +25,13 @@ public class MainMenuCustomer
     private JLabel balancyDisplay;
     private JComboBox chooseAccount;
     private JPanel balancePanel;
-    HashMap<String, String> loginInfoCustomer;
-    HashMap<String, String> loginInfoEmployee;
 
-    public MainMenuCustomer(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
 
-        loginInfoCustomer = loginInfoCustomerOriginal;
-        loginInfoEmployee = loginInfoEmployeeOriginal;
+    public MainMenuCustomer() throws IOException {
+
 
         WindowActions.setUp(this);
-        WindowActions.addMenuBar(this, loginInfoCustomerOriginal, loginInfoEmployeeOriginal);
+        WindowActions.addMenuBar(this);
 
         makeTransferButton.setFocusable(false);
         checkHistoryButton.setFocusable(false);

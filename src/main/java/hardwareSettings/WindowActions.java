@@ -42,7 +42,7 @@ public interface WindowActions {
         setBankLogoFrame(frame);
     }
 
-    public static void addMenuBar(JFrame mainFrame, HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal){
+    public static void addMenuBar(JFrame mainFrame){
         JMenuBar menuBar = new JMenuBar();
         JButton logOutButton = new JButton("Log OUT");
 
@@ -53,7 +53,7 @@ public interface WindowActions {
                 mainFrame.dispose();
                 //System.out.println("CLICK");
                 try {
-                    new StartPage(loginInfoCustomerOriginal, loginInfoEmployeeOriginal);
+                    new StartPage();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

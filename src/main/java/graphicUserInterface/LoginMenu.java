@@ -38,14 +38,9 @@ public class LoginMenu
      * 2 for employee
      */
     private int chooser = 1;
-    HashMap<String, String> loginInfoCustomer;
-    HashMap<String, String> loginInfoEmployee;
 
+    public LoginMenu() throws IOException {
 
-    public LoginMenu(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
-
-        loginInfoCustomer = loginInfoCustomerOriginal;
-        loginInfoEmployee = loginInfoEmployeeOriginal;
 
         WindowActions.setBankLogoFrame(this);
         WindowActions.centreWindow(this);
@@ -61,23 +56,15 @@ public class LoginMenu
         group.add(workerRadioButton);
 
         customerRadioButton.setFocusable(false);
-        customerRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                loginLabel.setText("Login:");
-                chooser = 1;
-                //System.out.println(chooser);
-            }
-        });
+        customerRadioButton.addActionListener(
 
-        workerRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                loginLabel.setText("ID:");
-                chooser = 2;
-                //System.out.println(chooser);
-            }
-        });
+                (e) -> this.chooser = 1
+        );
+
+        workerRadioButton.addActionListener(
+
+                (e) -> this.chooser = 2
+        );
         workerRadioButton.setFocusable(false);
 
         loginButton.setFocusable(false);
@@ -95,7 +82,7 @@ public class LoginMenu
         if(e.getSource() == cancelButton){
             this.dispose();
             try {
-                new StartPage(loginInfoCustomer, loginInfoEmployee);
+                new StartPage();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
@@ -109,28 +96,33 @@ public class LoginMenu
                 CustomersDatabase customersDatabase = CustomersDatabase.getInstance();
                 String login = loginField.getText();
                 //if that customer exists
-                Optional<Customer> matched = customersDatabase.getCustomers().stream().filter(customer -> customer.getLogin().equals(login)).findFirst();
-                if(matched.isPresent() && matched.get().getPassword().equals(new String(passwordField.getPassword()))) {
+                Optional<Customer> matchedCustomer = customersDatabase.getCustomers().stream().filter(customer -> customer.getLogin().equals(login)).findFirst();
+
+                if(matchedCustomer.isPresent() &&
+                    matchedCustomer.get().getPassword().equals(new String(passwordField.getPassword()))) {
+
                     loginField.setText("ZALOGOWANO KLIENTA");   //usun to pozniej xd
-                    //ZALOGOWANO!!!,
-                    // TUTAJ CIĘ STANISŁAWIE OPUSZCZAM
-                    //DALEJ BYL TEN KOD, ALE MUSISZ GO CIUT ZMIENIC:
-                    //POWINNO BYĆ W TYM KONSTRUKTORZE KLIENTA PRZESYŁANIE JEGO KONTA DALEJ
-                    //ŻEBY NIE TRZEBA BYŁO DRUGI RAZ TEGO WYSZUKIWAĆ
-                    /*try {
-                        new MainMenuCustomer(loginInfoCustomer, loginInfoEmployee);
+
+                    JOptionPane.showMessageDialog(null, "LOGGED", "Succesful login operation", JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                    try {
+                        new MainMenuCustomer();
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
-                    }*/
+                    }
 
+                } else{
+                    JOptionPane.showMessageDialog(null, "WRONG LOGIN DATA!", "DATA ERROR", JOptionPane.ERROR_MESSAGE);
                 }
-            }
-            if(chooser == 2) {
+            } else if(chooser == 2) {
                 EmployeesDatabase employeesDatabase = EmployeesDatabase.getInstance();
                 String sID = loginField.getText();
                 //if that customer exists
-                Optional<Employee> matched = employeesDatabase.getEmployees().stream().filter(employee -> employee.getsID().equals(sID)).findFirst();
-                if(matched.isPresent() && matched.get().getPassword().equals(new String(passwordField.getPassword()))) {
+                Optional<Employee> matchedEmployee = employeesDatabase.getEmployees().stream().filter(employee -> employee.getsID().equals(sID)).findFirst();
+
+                if(matchedEmployee.isPresent() &&
+                    matchedEmployee.get().getPassword().equals(new String(passwordField.getPassword()))) {
+
                     loginField.setText("ZALOGOWANO PRACOWNIKA");   //usun to pozniej xd
                     //ZALOGOWANO!!!,
                     // TUTAJ CIĘ STANISŁAWIE OPUSZCZAM
@@ -138,6 +130,8 @@ public class LoginMenu
                     //POWINNO BYĆ W TYM KONSTRUKTORZE KLIENTA PRZESYŁANIE JEGO KONTA DALEJ
                     //ŻEBY NIE TRZEBA BYŁO DRUGI RAZ TEGO WYSZUKIWAĆ
 
+                } else{
+                    JOptionPane.showMessageDialog(null, "WRONG LOGIN DATA!", "DATA ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
             /*

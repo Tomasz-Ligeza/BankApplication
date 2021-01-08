@@ -17,13 +17,9 @@ public class StartPage
     private JButton createAccountButton;
     private JPanel startPagePanel;
 
-    HashMap<String, String> loginInfoCustomer;
-    HashMap<String, String> loginInfoEmployee;
 
-    public StartPage(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
+    public StartPage() throws IOException {
 
-        loginInfoCustomer = loginInfoCustomerOriginal;
-        loginInfoEmployee = loginInfoEmployeeOriginal;
 
         WindowActions.setUp(this);
         /*WindowActions.setBankLogoFrame(this);
@@ -49,7 +45,7 @@ public class StartPage
         if(e.getSource() == logInButton){
             try {
                 this.dispose();
-                LoginMenu loginMenu = new LoginMenu(loginInfoCustomer, loginInfoEmployee);
+                LoginMenu loginMenu = new LoginMenu();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
@@ -57,7 +53,7 @@ public class StartPage
         else if(e.getSource() == createAccountButton){
             this.dispose();
             try {
-                CreateAccountMenu cam = new CreateAccountMenu(loginInfoCustomer, loginInfoEmployee);
+                CreateAccountMenu cam = new CreateAccountMenu();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }

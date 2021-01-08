@@ -23,16 +23,11 @@ public class MainMenuEmployee
     private JPanel panelPicture;
     private JLabel pictureLabel;
     private JLabel employeeHello;
-    HashMap<String, String> loginInfoCustomer;
-    HashMap<String, String> loginInfoEmployee;
 
-    public MainMenuEmployee(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
-
-        loginInfoCustomer = loginInfoCustomerOriginal;
-        loginInfoEmployee = loginInfoEmployeeOriginal;
+    public MainMenuEmployee() throws IOException {
 
         WindowActions.setUp(this);
-        WindowActions.addMenuBar(this, loginInfoCustomerOriginal, loginInfoEmployeeOriginal);
+        WindowActions.addMenuBar(this);
 
         blockButton.setFocusable(false);
         acceptButton.setFocusable(false);
