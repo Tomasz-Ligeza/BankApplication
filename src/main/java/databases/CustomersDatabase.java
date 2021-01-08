@@ -14,12 +14,23 @@ public class CustomersDatabase {
     private static CustomersDatabase customersDatabase = null;
     private List<Customer> customers;
 
+    /**
+     *
+     * Classic implementation of Singleton Design Pattern.
+     *
+     * @return CustomerDataBase which is instance of this class.
+     */
     public static CustomersDatabase getInstance() {
         if(customersDatabase == null)
             customersDatabase = new CustomersDatabase();
         return customersDatabase;
     }
 
+    /**
+     *
+     * Reads saved customers from file and saves it in customers field.
+     *
+     */
     private CustomersDatabase() {
         customers = CustomersFromFileReader.readCustomersDataFromFile();
         Map<String, List<Account>> accounts = AccountsFromFileReader.readAccountsDataFromFile();
@@ -29,10 +40,7 @@ public class CustomersDatabase {
     };
 
     /**
-     * probably this function have to be deleted, because it does not match encapsulation
-     * why not just "getCustomer(Customer)" or "getCustomer(String ID)" ?
-     * have to figure it out after implementing other components of system
-     * //check EmployeesDataBase also
+     * Returns List of Customers.
      *
      * @return Iterable<Customer> from Hashset<Customer> customers
      */

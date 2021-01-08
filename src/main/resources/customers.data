@@ -1,11 +1,11 @@
 login	password	sID	9999
-firstName	lastName	sPESEL	2000.04.27
+firstName	lastName	sPESEL	2000-04-27
 country	city
 street	houseNr
 postalCode
 
 wigrys	123456	00000000	6969
-Tomasz	Ligęza	00242709999	2000.04.27
-Poland Waksmund
+Tomasz	Ligęza	00242709999	2000-04-27
+Poland	Waksmund
 Nowotarska	198
 34-431
