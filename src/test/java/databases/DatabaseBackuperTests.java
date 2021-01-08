@@ -19,19 +19,24 @@ class DatabaseBackuperTests {
 
     @Test
     public void customersDataFileExistsAfterSavingDataMethodTest() {
-        Assertions.assertTrue(Files.exists(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\customersBackup.data")));
+        Assertions.assertTrue(Files.exists(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\customers.data")));
 
     }
 
     @Test void employeesDataFileExistsAfterSavingDataMethodTest() {
-        Assertions.assertTrue(Files.exists(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\employeesBackup.data")));
+        Assertions.assertTrue(Files.exists(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\employees.data")));
+    }
+
+    @Test
+    public void accountsDataFileExistsAfterSavingDataMethodTest() {
+        Assertions.assertTrue(Files.exists(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\accounts.data")));
     }
 
     @Test
     public void customersDataFileGreaterThanZeroTest() {
         long size = 0;
         try {
-            size = Files.size(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\customersBackup.data"));
+            size = Files.size(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\customers.data"));
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -43,11 +48,24 @@ class DatabaseBackuperTests {
     public void employeesDataFileGreaterThanZeroTest() {
         long size = 0;
         try {
-            size = Files.size(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\employeesBackup.data"));
+            size = Files.size(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\employees.data"));
         }
         catch (Exception e) {
             e.printStackTrace();
         }
         Assertions.assertTrue(size > 0);
     }
+
+    @Test
+    public void accountsDataFileGreaterThanZeroTest() {
+        long size = 0;
+        try {
+            size = Files.size(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\accounts.data"));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        Assertions.assertTrue(size > 0);
+    }
+
 }

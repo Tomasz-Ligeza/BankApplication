@@ -72,6 +72,10 @@ public class Customer extends Person implements Generator {
         this.iPIN = iPIN;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
     public void setAccounts(List<Account> accounts) {
         this.accounts.addAll(accounts);
     }

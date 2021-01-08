@@ -1,9 +1,9 @@
 package account;
 
 public class Account {
-    private String accountNumber;
-    private boolean status;
-    private double balance;
+    protected String accountNumber;
+    protected boolean status;
+    protected double balance;
 
     //ctors
 
@@ -23,4 +23,9 @@ public class Account {
     public boolean getStatus() { return status; }
     public String getAccountNumber() { return accountNumber; }
     public double getBalance() { return balance; }
+
+    public String typeOfAccount() { return "ACC"; }
+    public String additionalInfo() { return ""; }
+
+
 }

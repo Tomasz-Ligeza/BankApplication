@@ -1,5 +1,12 @@
 sID	password
-firstName	lastName	sPESEL	2000.04.27
+firstName	lastName	sPESEL	2000-04-27
 country	city
 street	houseNr
 postalCode
+
+0	password
+Stanisław	Marek	00242702214	2000-01-01
+Polsza	Rzeszów
+Stanisława_Wyspiańskiego_7	12
+34-431
+

@@ -1,12 +1,12 @@
 package databases;
 
 
+import account.Account;
 import address.Address;
 import person.Customer.Customer;
 import person.Employee.Employee;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -45,12 +45,19 @@ public class DatabaseBackuper {
     }
 
     private void saveCustomersData() {
-        File file;
+        File customersFile;
+        File accountsFile;
         try {
-            file = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\customersBackup.data");
-            FileWriter fileWriter = new FileWriter(file, false);
-            customersDatabase.getCustomers().stream().forEach(customer -> saveOneCustomerData(customer, fileWriter));
-            fileWriter.close();
+            customersFile = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\customers.data");
+            FileWriter customersFileWriter = new FileWriter(customersFile, false);
+            accountsFile = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\accounts.data");
+            FileWriter accountsFileWriter = new FileWriter(accountsFile, false);
+            customersDatabase.getCustomers().forEach(customer -> {
+                saveOneCustomerData(customer, customersFileWriter);
+                customer.getAccounts().forEach(account -> saveOneAccountData(account, customer.getsID(), accountsFileWriter));
+            });
+            customersFileWriter.close();
+            accountsFileWriter.close();
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -60,15 +67,23 @@ public class DatabaseBackuper {
     private void saveEmployeesData() {
         File file;
         try {
-            file = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\employeesBackup.data");
+            file = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\employees.data");
             FileWriter fileWriter = new FileWriter(file, false);
-            employeesDatabase.getEmployees().stream().forEach(employee -> saveOneEmployeeData(employee, fileWriter));
+            employeesDatabase.getEmployees().forEach(employee -> saveOneEmployeeData(employee, fileWriter));
             fileWriter.close();
         }
         catch(Exception e) {
             e.printStackTrace();
         }
     }
+
+    /*
+    login	password	sID	9999
+    firstName	lastName	sPESEL	2000-04-27
+    country	city
+    street	houseNr
+    postalCode
+     */
 
     private void saveOneCustomerData(Customer customer, Writer file) {
         try {
@@ -95,8 +110,67 @@ public class DatabaseBackuper {
         }
     }
 
-    private void saveOneEmployeeData(Employee employee, Writer writer) {
+    /*
+    ACC
+    sID
+    accountNumber
+    true	7.2
 
+    SA
+    sID
+    accountNumber
+    true	2.0
+    3.0
+
+    FCA
+    sID
+    accountNumber
+    true	3.0
+    EUR
+     */
+
+    private void saveOneAccountData(Account account, String sID, Writer file) {
+        try {
+            file.write(account.typeOfAccount() + "\n");
+            file.write(sID + "\n");
+            file.write(account.getAccountNumber() + "\n");
+            file.write((account.getStatus() ? "true" : "false") + "\t");
+            file.write(String.valueOf(account.getBalance()) + "\n");
+            file.write(account.additionalInfo() + "\n");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*
+    sID	password
+    firstName	lastName	sPESEL	2000.04.27
+    country	city
+    street	houseNr
+    postalCode
+     */
+    private void saveOneEmployeeData(Employee employee, Writer file) {
+        try {
+            file.write(employee.getsID() + "\t");
+            file.write(employee.getPassword() + "\n");
+            file.write(employee.getFirstName() + "\t");
+            file.write(employee.getLastName() + "\t");
+            file.write(employee.getsPESEL() + "\t");
+            LocalDate bornDate = employee.getBornDate();
+            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+            file.write( formatter.format(bornDate) + "\n");
+            Address address = employee.getAddress();
+            file.write(address.getCountry() + "\t");
+            file.write(address.getCity() + "\n");
+            file.write(address.getStreet() + "\t");
+            file.write(address.getHouseNr() + "\n");
+            file.write(address.getPostalCode() + "\n");
+            file.write("\n");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

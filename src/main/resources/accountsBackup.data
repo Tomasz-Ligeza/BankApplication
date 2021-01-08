@@ -23,7 +23,7 @@ EUR
 ACC
 00000000
 accountNumber
-true	2000.0
+true	2000
 
 ACC
 00000000
@@ -33,11 +33,10 @@ true	14572.53
 ACC
 00000000
 accountNumber
-true	0.5
+true	0.50
 
 FCA
 00000000
 accountNumber
 true	4.2
 EUR
-
