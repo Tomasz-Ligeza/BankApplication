@@ -9,10 +9,7 @@ import person.Customer.Customer;
 import person.Employee.Employee;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Optional;
@@ -75,6 +72,7 @@ public class LoginMenu
 
         clearButton.setFocusable(false);
         clearButton.addActionListener(this);
+
     }
 
     @Override
@@ -101,12 +99,14 @@ public class LoginMenu
                 if(matchedCustomer.isPresent() &&
                     matchedCustomer.get().getPassword().equals(new String(passwordField.getPassword()))) {
 
-                    loginField.setText("ZALOGOWANO KLIENTA");   //usun to pozniej xd
+                    Customer toLogCustomer = matchedCustomer.get();
+
+                    loginField.setText("ZALOGOWANO KLIENTA");
 
                     JOptionPane.showMessageDialog(null, "LOGGED", "Succesful login operation", JOptionPane.INFORMATION_MESSAGE);
                     this.dispose();
                     try {
-                        new MainMenuCustomer();
+                        new MainMenuCustomer(toLogCustomer);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -123,12 +123,22 @@ public class LoginMenu
                 if(matchedEmployee.isPresent() &&
                     matchedEmployee.get().getPassword().equals(new String(passwordField.getPassword()))) {
 
+                    Employee toLogEmployee = matchedEmployee.get();
+
                     loginField.setText("ZALOGOWANO PRACOWNIKA");   //usun to pozniej xd
                     //ZALOGOWANO!!!,
                     // TUTAJ CIĘ STANISŁAWIE OPUSZCZAM
                     //DALEJ BYL TEN KOD, ALE MUSISZ GO CIUT ZMIENIC:
                     //POWINNO BYĆ W TYM KONSTRUKTORZE KLIENTA PRZESYŁANIE JEGO KONTA DALEJ
                     //ŻEBY NIE TRZEBA BYŁO DRUGI RAZ TEGO WYSZUKIWAĆ
+
+                    JOptionPane.showMessageDialog(null, "LOGGED", "Succesful login operation", JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                    try {
+                        new MainMenuEmployee(toLogEmployee);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
 
                 } else{
                     JOptionPane.showMessageDialog(null, "WRONG LOGIN DATA!", "DATA ERROR", JOptionPane.ERROR_MESSAGE);

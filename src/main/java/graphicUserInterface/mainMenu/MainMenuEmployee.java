@@ -1,6 +1,7 @@
 package graphicUserInterface.mainMenu;
 
 import hardwareSettings.WindowActions;
+import person.Employee.Employee;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -24,10 +25,12 @@ public class MainMenuEmployee
     private JLabel pictureLabel;
     private JLabel employeeHello;
 
-    public MainMenuEmployee() throws IOException {
+    public MainMenuEmployee(Employee loggedEmployee) throws IOException {
 
         WindowActions.setUp(this);
         WindowActions.addMenuBar(this);
+
+        employeeHello.setText("HELLO " + loggedEmployee.getFirstName() + " " + loggedEmployee.getsID());
 
         blockButton.setFocusable(false);
         acceptButton.setFocusable(false);

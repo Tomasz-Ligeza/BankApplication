@@ -10,6 +10,7 @@ import java.util.Objects;
 
 public class Employee extends Person implements Generator {
     private String sID;
+    //private String login;
     private String password;
 
     public Employee() {
@@ -46,10 +47,10 @@ public class Employee extends Person implements Generator {
     @Override
     public String toString() {
         return "Employee{" +
-                //"sID='" + sID + '\'' +
+                "sID='" + sID + '\'' +
                 "Name='" + getFirstName() + '\'' +
                 "Surname='" + getLastName() + '\'' +
-                //", password='" + password + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
