@@ -1,6 +1,7 @@
 package graphicUserInterface.mainMenu.customerMainMenuOptions;
 
 import hardwareSettings.WindowActions;
+import person.Customer.Customer;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +10,7 @@ import java.io.IOException;
 
 public class ChangeDataFrame
         extends JFrame
-        implements ActionListener, WindowActions {
+        implements WindowActions {
 
     private JFormattedTextField newLoginFormattedTextField;
     private JPasswordField newPasswordPasswordField;
@@ -17,10 +18,51 @@ public class ChangeDataFrame
     private JButton SUBMITButton;
     private JPanel panel;
 
-    public ChangeDataFrame() throws IOException {
+    private String newLogin;
+    private String newPassword;
+    private String oldPassword;
 
+    private Customer loggedCustomerCopy;
+    private int userPIN;
+
+    public ChangeDataFrame(Customer loggedCustomer) throws IOException {
+
+        loggedCustomerCopy = loggedCustomer;
+        userPIN = loggedCustomer.getiPIN();
         //WindowActions.centreWindow(this);
         WindowActions.setBankLogoFrame(this);
+
+        newLogin = newLoginFormattedTextField.getText();
+        newPassword = newPasswordPasswordField.getPassword().toString();
+        oldPassword = oldPasswordConfirmPasswordField.getPassword().toString();
+
+        SUBMITButton.addActionListener(
+                e ->
+                {
+                    if(newLogin != null &&
+                            newPassword != null &&
+                            oldPassword.equals(loggedCustomerCopy.getPassword())){
+
+                        String userInput;
+                        userInput = JOptionPane.showInputDialog(this, "Enter your PIN", "Confirm with PIN", JOptionPane.QUESTION_MESSAGE);
+                        if(Integer.valueOf(userInput) == userPIN){
+                            this.dispose();
+                            loggedCustomerCopy.setLogin(newLogin);
+                            loggedCustomerCopy.setPassword(newPassword);
+                        }else{
+                            JOptionPane.showMessageDialog(this, "WRONG DATA", "Wrong data", JOptionPane.ERROR_MESSAGE);
+                        }
+
+                    }else{
+                        JOptionPane.showMessageDialog(null, "WRONG DATA!", "WRONG DATA", JOptionPane.ERROR_MESSAGE);
+                        System.out.println(loggedCustomerCopy.toString());   //haslo jest poprawnie przypisane to o co tu chodzi?
+                        /*
+                        odpalilem debugger i juz widze
+                        oldPassword i password uzytwnika sie roznia dlugoscia i znakami
+                         */
+                    }
+                }
+        );
 
         this.setSize(400,400);
         this.setContentPane(panel);
@@ -29,8 +71,4 @@ public class ChangeDataFrame
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
 }

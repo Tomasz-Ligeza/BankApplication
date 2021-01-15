@@ -15,8 +15,7 @@ import java.util.Optional;
 
 public class MainMenuCustomer
         extends JFrame
-        implements ActionListener,
-        WindowActions {
+        implements WindowActions {
 
     private JLabel customerHello;
     private JPanel panel;
@@ -30,83 +29,92 @@ public class MainMenuCustomer
     private JComboBox chooseAccount;
     private JPanel balancePanel;
 
+    private Customer loggedCustomerCopy;
+
     public MainMenuCustomer(Customer loggedCustomer) throws IOException {
 
         WindowActions.setUp(this);
         WindowActions.addMenuBar(this);
 
-        chooseAccount.addItem("");
+        loggedCustomerCopy = loggedCustomer;
 
         customerHello.setText("HELLO " + loggedCustomer.getFirstName() + " " + loggedCustomer.getLastName());
         balanceDisplay.setText("BALANCE");
 
         makeTransferButton.setFocusable(false);
+        makeTransferButton.addActionListener(
+                e -> {
+                    try {
+                        new MakeTransferFrame(loggedCustomerCopy);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+        );
+
         checkHistoryButton.setFocusable(false);
+        checkHistoryButton.addActionListener(
+                e -> {
+                    try {
+                        new CheckHistoryFrame(loggedCustomerCopy);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+        );
+
         askForALoanButton.setFocusable(false);
-        createNewAccountButton.setFocusable(false);
+        askForALoanButton.addActionListener(
+                e -> {
+                    try {
+                        new AskForLoanFrame(loggedCustomerCopy);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+        );
+
         changeDataButton.setFocusable(false);
+        changeDataButton.addActionListener(
+                e -> {
+                    try {
+                        new ChangeDataFrame(loggedCustomerCopy);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+        );
+
         createNewAccountButton.setFocusable(false);
+        createNewAccountButton.addActionListener(
+                e -> {
+                    try {
+                        new CreateNewAccountFrame(loggedCustomerCopy);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+        );
+
         createPeriodicPaymentButton.setFocusable(false);
+        createPeriodicPaymentButton.addActionListener(
+                e -> {
+                    try {
+                        new CreatePeriodPaymentFrame(loggedCustomerCopy);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+        );
+
         chooseAccount.setFocusable(false);
-        makeTransferButton.addActionListener(this);
-        checkHistoryButton.addActionListener(this);
-        askForALoanButton.addActionListener(this);
-        createNewAccountButton.addActionListener(this);
-        changeDataButton.addActionListener(this);
-        createNewAccountButton.addActionListener(this);
-        createPeriodicPaymentButton.addActionListener(this);
-        chooseAccount.addActionListener(this);
+        chooseAccount.addActionListener(
+                e -> System.out.println("impelemt")
+        );
 
         this.setContentPane(panel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == changeDataButton){
-            try {
-                new ChangeDataFrame();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-            //changeDataButton.setEnabled(false);
-        }else if(e.getSource() == makeTransferButton){
-            try {
-                new MakeTransferFrame();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-            //makeTransferButton.setEnabled(false);
-        }else if(e.getSource() == checkHistoryButton){
-            try {
-                new CheckHistoryFrame();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-            //checkHistoryButton.setEnabled(false);
-        }else if(e.getSource() == askForALoanButton){
-            try {
-                new AskForLoanFrame();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-            //askForALoanButton.setEnabled(false);
-        }else if(e.getSource() == createNewAccountButton) {
-            try {
-                new CreateNewAccountFrame();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-            //createNewAccountButton.setEnabled(false);
-        } else if(e.getSource() == createPeriodicPaymentButton){
-            try {
-                new CreatePeriodPaymentFrame();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-            //createPeriodicPaymentButton.setEnabled(false);
-        }
-    }
 }
