@@ -19,6 +19,23 @@ public class CurrencyManager {
         return currencyValue.get(currency);
     }
 
+    public static Currency parseCurrency(String currencyInString){
+
+        if(currencyInString.toUpperCase() == "EUR"){
+            return Currency.EUR;
+        }
+        if(currencyInString.toUpperCase() == "USD"){
+            return Currency.USD;
+        }
+        if(currencyInString.toUpperCase() == "PLN"){
+            return Currency.PLN;
+        }
+        if(currencyInString.toUpperCase() == "GBP"){
+            return Currency.GBP;
+        }
+        return null;
+    }
+
     public enum Currency {
         PLN,
         USD,

@@ -1,6 +1,7 @@
 package graphicUserInterface.mainMenu;
 
 import hardwareSettings.WindowActions;
+import person.Employee.Employee;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -23,16 +24,13 @@ public class MainMenuEmployee
     private JPanel panelPicture;
     private JLabel pictureLabel;
     private JLabel employeeHello;
-    HashMap<String, String> loginInfoCustomer;
-    HashMap<String, String> loginInfoEmployee;
 
-    public MainMenuEmployee(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
-
-        loginInfoCustomer = loginInfoCustomerOriginal;
-        loginInfoEmployee = loginInfoEmployeeOriginal;
+    public MainMenuEmployee(Employee loggedEmployee) throws IOException {
 
         WindowActions.setUp(this);
-        WindowActions.addMenuBar(this, loginInfoCustomerOriginal, loginInfoEmployeeOriginal);
+        WindowActions.addMenuBar(this);
+
+        employeeHello.setText("HELLO " + loggedEmployee.getFirstName() + " " + loggedEmployee.getsID());
 
         blockButton.setFocusable(false);
         acceptButton.setFocusable(false);

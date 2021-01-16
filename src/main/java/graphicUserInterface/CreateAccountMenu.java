@@ -29,13 +29,8 @@ public class CreateAccountMenu
     private JTextField textField8;
     private JButton button1;
     private JButton cancelButton;
-    HashMap<String, String> loginInfoCustomer;
-    HashMap<String, String> loginInfoEmployee;
 
-    public CreateAccountMenu(HashMap<String, String> loginInfoCustomerOriginal, HashMap<String, String> loginInfoEmployeeOriginal) throws IOException {
-
-        loginInfoCustomer = loginInfoCustomerOriginal;
-        loginInfoEmployee = loginInfoEmployeeOriginal;
+    public CreateAccountMenu() throws IOException {
 
         WindowActions.setUp(this);
         /*WindowActions.setBankLogoFrame(this);
@@ -67,7 +62,7 @@ public class CreateAccountMenu
         if(e.getSource() == cancelButton){
             this.dispose();
             try {
-                new StartPage(loginInfoCustomer, loginInfoEmployee);
+                new StartPage();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }

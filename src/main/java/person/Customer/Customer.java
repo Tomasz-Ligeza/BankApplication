@@ -79,12 +79,13 @@ public class Customer extends Person implements Generator {
     @Override
     public String toString() {
         return "Customer{" +
-                //"login='" + login + '\'' +
-                //", password='" + password + '\'' +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 "Name='" + getFirstName() + '\'' +
                 "Surname='" + getLastName() + '\'' +
-                //", sID='" + sID + '\'' +
-                //", iPIN=" + iPIN +
+                ", sID='" + sID + '\'' +
+                ", iPIN=" + iPIN +
+                "Address{" + getAddress().toString() +
                 '}';
     }
 
@@ -102,5 +103,9 @@ public class Customer extends Person implements Generator {
     @Override
     public int hashCode() {
         return Objects.hash(login, password, sID, iPIN);
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
     }
 }
