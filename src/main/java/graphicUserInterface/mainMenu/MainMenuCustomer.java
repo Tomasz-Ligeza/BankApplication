@@ -1,17 +1,11 @@
 package graphicUserInterface.mainMenu;
 
-import account.Account;
 import graphicUserInterface.mainMenu.customerMainMenuOptions.*;
 import hardwareSettings.WindowActions;
 import person.Customer.Customer;
 
-import javax.accessibility.AccessibleAction;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Optional;
 
 public class MainMenuCustomer
         extends JFrame
@@ -45,7 +39,7 @@ public class MainMenuCustomer
         makeTransferButton.addActionListener(
                 e -> {
                     try {
-                        new MakeTransferFrame(loggedCustomerCopy);
+                        new MakeTransactionFrame(loggedCustomerCopy);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }

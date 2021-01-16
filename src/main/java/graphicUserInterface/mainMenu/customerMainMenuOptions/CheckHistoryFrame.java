@@ -2,7 +2,6 @@ package graphicUserInterface.mainMenu.customerMainMenuOptions;
 
 import hardwareSettings.WindowActions;
 import person.Customer.Customer;
-import transaction.Transactions;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +17,6 @@ public class CheckHistoryFrame
     private JButton backButton;
     private JButton details;
     private final Customer copy;
-    private Transactions customerTansactions;
 
     public CheckHistoryFrame(Customer customer) throws IOException {
 

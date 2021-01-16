@@ -109,16 +109,21 @@ public class CreateAccountMenu
                 );
                 customer.setLogin(customer.getsID());
 
-                CustomersDatabase.getInstance().addCustomer(customer);
-
-                String password = customer.getPassword();
-                int pin = customer.getiPIN();
-                JTextArea text = new JTextArea(String.format("REGISTERED!\nlogin: %s\npassword: %s\npin: %d", customer.getsID(), password, pin));
-                text.setEditable(false);
-                text.setBackground(UIManager.getColor("TextField.background"));
-                JOptionPane.showMessageDialog(null,
-                        text,
-                        "REGISTRATION FEEDBACK", JOptionPane.INFORMATION_MESSAGE);
+                if(CustomersDatabase.getInstance().addCustomer(customer)) {
+                    String password = customer.getPassword();
+                    int pin = customer.getiPIN();
+                    JTextArea text = new JTextArea(String.format("REGISTERED!\nlogin: %s\npassword: %s\npin: %d", customer.getsID(), password, pin));
+                    text.setEditable(false);
+                    text.setBackground(UIManager.getColor("TextField.background"));
+                    JOptionPane.showMessageDialog(null,
+                            text,
+                            "REGISTRATION FEEDBACK", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null,
+                            "SUCH CUSTOMER ALREADY EXISTS!",
+                            "REGISTRATION FEEDBACK", JOptionPane.ERROR_MESSAGE);
+                }
                 this.dispose();
                 try {
                     new StartPage();

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class MakeTransferFrame
+public class MakeTransactionFrame
         extends JFrame
         implements ActionListener, WindowActions {
 
@@ -21,7 +21,7 @@ public class MakeTransferFrame
 
     private final Customer customerCopy;
 
-    public MakeTransferFrame(Customer customer) throws IOException {
+    public MakeTransactionFrame(Customer customer) throws IOException {
 
         customerCopy = customer;
 

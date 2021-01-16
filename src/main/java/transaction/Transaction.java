@@ -1,5 +1,7 @@
 package transaction;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 /**
@@ -12,13 +14,10 @@ public class Transaction {
     private String receiverAccountNumber;
     private String senderAccountNumber;
     private double transferAmount;
-    private Date sendingDate;
-    private Date receivingDate;
-    private final boolean transactionStatus;
+    private LocalDate sendingDate;
+    private LocalTime sendingTime;
 
-    Transaction() {
-        transactionStatus = false;
-    }
+    public Transaction() {}
 
     public void setReceiverAccountNumber(String receiverAccountNumber) {
         this.receiverAccountNumber = receiverAccountNumber;
@@ -32,12 +31,8 @@ public class Transaction {
         this.transferAmount = transferAmount;
     }
 
-    public void setSendingDate(Date sendingDate) {
+    public void setSendingDate(LocalDate sendingDate) {
         this.sendingDate = sendingDate;
-    }
-
-    public void setReceivingDate(Date receivingDate) {
-        this.receivingDate = receivingDate;
     }
 
     public String getReceiverAccountNumber() {
@@ -52,15 +47,15 @@ public class Transaction {
         return transferAmount;
     }
 
-    public Date getSendingDate() {
+    public LocalDate getSendingDate() {
         return sendingDate;
     }
 
-    public Date getReceivingDate() {
-        return receivingDate;
+    public void setSendingTime(LocalTime sendingTime) {
+        this.sendingTime = sendingTime;
     }
 
-    public boolean isTransactionStatus() {
-        return transactionStatus;
+    public LocalTime getSendingTime() {
+        return sendingTime;
     }
 }

@@ -68,4 +68,15 @@ class DatabaseBackuperTests {
         Assertions.assertTrue(size > 0);
     }
 
+    @Test
+    public void transactionsDataFileGreaterThanZeroTest() {
+        long size = 0;
+        try {
+            size = Files.size(Path.of(System.getProperty("user.dir") + "\\src\\main\\resources\\transactionsBackup.data"));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        Assertions.assertTrue(size > 0);
+    }
 }

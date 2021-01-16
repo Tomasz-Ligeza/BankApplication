@@ -54,6 +54,7 @@ public class CustomersFromFileReader {
             customer.setAddress(a);
         }
         catch(Exception e) {
+            e.printStackTrace();
             return null;
         }
         return customer;

@@ -80,6 +80,10 @@ public class Customer extends Person implements Generator {
             this.accounts.addAll(accounts);
     }
 
+    public void addAccount(Account account) {
+        this.accounts.add(account);
+    }
+
     @Override
     public String toString() {
         return "Customer{" +

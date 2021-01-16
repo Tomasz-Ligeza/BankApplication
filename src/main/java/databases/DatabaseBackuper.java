@@ -5,9 +5,11 @@ import account.Account;
 import address.Address;
 import person.Customer.Customer;
 import person.Employee.Employee;
+import transaction.Transaction;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -19,6 +21,7 @@ public class DatabaseBackuper {
     private static DatabaseBackuper databaseBackuper;
     private static CustomersDatabase customersDatabase;
     private static EmployeesDatabase employeesDatabase;
+    private static TransactionsDatabase transactionsDatabase;
 
     public static DatabaseBackuper getInstance() {
         if(databaseBackuper == null) {
@@ -31,7 +34,9 @@ public class DatabaseBackuper {
     public void saveApplicationData() {
         saveCustomersData();
         saveEmployeesData();
+        saveTransactionsData();
     }
+
 
     /**
      *
@@ -42,6 +47,7 @@ public class DatabaseBackuper {
     private DatabaseBackuper() {
         customersDatabase = CustomersDatabase.getInstance();
         employeesDatabase = EmployeesDatabase.getInstance();
+        transactionsDatabase = TransactionsDatabase.getInstance();
     }
 
     private void saveCustomersData() {
@@ -70,6 +76,20 @@ public class DatabaseBackuper {
             file = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\employees.data");
             FileWriter fileWriter = new FileWriter(file, false);
             employeesDatabase.getEmployees().forEach(employee -> saveOneEmployeeData(employee, fileWriter));
+            fileWriter.close();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void saveTransactionsData() {
+        File file;
+        try {
+            file = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\transactions.data");
+            FileWriter fileWriter = new FileWriter(file, false);
+            transactionsDatabase.getTransactions().forEach(transaction -> saveOneTransactionData(transaction, fileWriter));
             fileWriter.close();
         }
         catch(Exception e) {
@@ -169,6 +189,23 @@ public class DatabaseBackuper {
             file.write("\n");
         }
         catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveOneTransactionData(Transaction transaction, Writer file) {
+        try {
+            file.write(transaction.getReceiverAccountNumber() + "\n");
+            file.write(transaction.getSenderAccountNumber() + "\n");
+            file.write(transaction.getTransferAmount() + "\n");
+            LocalDate sendingDate = transaction.getSendingDate();
+            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+            file.write(formatter.format(sendingDate) + ";");
+            formatter = DateTimeFormatter.ofPattern("HH:mm");
+            LocalTime sendingTime = transaction.getSendingTime();
+            file.write(formatter.format(sendingTime) + "\n\n");
+        }
+        catch(Exception e) {
             e.printStackTrace();
         }
     }

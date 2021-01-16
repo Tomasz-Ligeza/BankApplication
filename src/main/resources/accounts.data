@@ -8,36 +8,14 @@ ACC
 accountNumber
 true	7.2
 
+ACC
+00000007
+4082495882524011
+true	0.0
+
 SA
-00000000
-accountNumber
-true	2.0
-3.0
-
-FCA
-00000000
-accountNumber
-true	3.0
-EUR
-
-ACC
-00000000
-accountNumber
-true	2000.0
-
-ACC
-00000001
-accountNumber
-true	14572.53
-
-ACC
-00000001
-accountNumber
-true	0.5
-
-FCA
-00000001
-accountNumber
-true	4.2
-EUR
+00000007
+3932694471003196
+true	0.0
+1000.0
 
