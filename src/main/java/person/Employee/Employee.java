@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class Employee extends Person implements Generator {
     private String sID;
-    //private String login;
+    private String login;
     private String password;
 
     public Employee() {

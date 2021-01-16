@@ -1,21 +1,21 @@
 ACC
-sID
+00000000
 accountNumber
 true	7.2
 
 ACC
-sID
+00000000
 accountNumber
 true	7.2
 
 SA
-sID
+00000000
 accountNumber
 true	2.0
 3.0
 
 FCA
-sID
+00000000
 accountNumber
 true	3.0
 EUR
@@ -26,17 +26,17 @@ accountNumber
 true	2000.0
 
 ACC
-00000000
+00000001
 accountNumber
 true	14572.53
 
 ACC
-00000000
+00000001
 accountNumber
 true	0.5
 
 FCA
-00000000
+00000001
 accountNumber
 true	4.2
 EUR
