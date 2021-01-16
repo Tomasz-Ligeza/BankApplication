@@ -12,21 +12,21 @@ import java.util.HashMap;
 
 public interface WindowActions {
 
-    public static void centreWindow(JFrame frame) {
+    static void centreWindow(JFrame frame) {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - frame.getWidth()) / 4);
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 4);
         frame.setLocation(x, y);
     }
 
-    public static void setHalfScreenSize(JFrame frame){
+    static void setHalfScreenSize(JFrame frame){
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) (dimension.height/2);
-        int y = (int) (dimension.width/2);
+        int x = dimension.height/2;
+        int y = dimension.width/2;
         frame.setSize(y, x);
     }
 
-    public static void setBankLogoFrame(JFrame frame) throws IOException {
+    static void setBankLogoFrame(JFrame frame) throws IOException {
        /* ImageIcon icon = new ImageIcon("bank_logo.png");
         frame.setIconImage(icon.getImage());*/
 
@@ -36,13 +36,13 @@ public interface WindowActions {
 
     }
 
-    public static void setUp(JFrame frame) throws IOException {
+    static void setUp(JFrame frame) throws IOException {
         centreWindow(frame);
         setHalfScreenSize(frame);
         setBankLogoFrame(frame);
     }
 
-    public static void addMenuBar(JFrame mainFrame){
+    static void addMenuBar(JFrame mainFrame){
         JMenuBar menuBar = new JMenuBar();
         JButton logOutButton = new JButton("Log OUT");
 

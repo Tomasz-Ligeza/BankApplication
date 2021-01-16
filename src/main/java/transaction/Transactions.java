@@ -3,8 +3,8 @@ package transaction;
 import java.util.LinkedList;
 
 public class Transactions {
-    private LinkedList<Transaction> transactions = new LinkedList<>();
-    private LinkedList<PeriodTransaction> periodTransactions = new LinkedList<PeriodTransaction>();
+    private final LinkedList<Transaction> transactions = new LinkedList<>();
+    private final LinkedList<PeriodTransaction> periodTransactions = new LinkedList<PeriodTransaction>();
 
     public LinkedList<Transaction> getTransactions() {
         return transactions;

@@ -26,7 +26,7 @@ public class CreateNewAccountFrame
     3 - foreign
      */
     private int chooser = 1;
-    private Customer customerCopy;
+    private final Customer customerCopy;
 
     public CreateNewAccountFrame(Customer customer) throws IOException {
         customerCopy = customer;

@@ -17,7 +17,7 @@ public class CheckHistoryFrame
     private JList historyList;
     private JButton backButton;
     private JButton details;
-    private Customer copy;
+    private final Customer copy;
     private Transactions customerTansactions;
 
     public CheckHistoryFrame(Customer customer) throws IOException {

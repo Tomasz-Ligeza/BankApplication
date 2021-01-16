@@ -18,12 +18,12 @@ public class ChangeDataFrame
     private JButton SUBMITButton;
     private JPanel panel;
 
-    private String newLogin;
-    private String newPassword;
-    private String oldPassword;
+    private final String newLogin;
+    private final String newPassword;
+    private final String oldPassword;
 
-    private Customer loggedCustomerCopy;
-    private int userPIN;
+    private final Customer loggedCustomerCopy;
+    private final int userPIN;
 
     public ChangeDataFrame(Customer loggedCustomer) throws IOException {
 

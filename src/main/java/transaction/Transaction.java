@@ -14,7 +14,7 @@ public class Transaction {
     private double transferAmount;
     private Date sendingDate;
     private Date receivingDate;
-    private boolean transactionStatus;
+    private final boolean transactionStatus;
 
     Transaction() {
         transactionStatus = false;

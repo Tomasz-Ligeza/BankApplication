@@ -135,7 +135,7 @@ public class DatabaseBackuper {
             file.write(sID + "\n");
             file.write(account.getAccountNumber() + "\n");
             file.write((account.getStatus() ? "true" : "false") + "\t");
-            file.write(String.valueOf(account.getBalance()) + "\n");
+            file.write(account.getBalance() + "\n");
             file.write(account.additionalInfo() + "\n");
         }
         catch (Exception e) {

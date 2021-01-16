@@ -18,6 +18,6 @@ public class SavingsAccount extends Account {
 
     @Override
     public String additionalInfo() {
-        return String.valueOf(targetBalance) + "\n";
+        return targetBalance + "\n";
     }
 }

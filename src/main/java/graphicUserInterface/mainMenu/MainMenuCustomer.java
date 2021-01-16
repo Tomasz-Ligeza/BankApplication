@@ -29,7 +29,7 @@ public class MainMenuCustomer
     private JComboBox chooseAccount;
     private JPanel balancePanel;
 
-    private Customer loggedCustomerCopy;
+    private final Customer loggedCustomerCopy;
 
     public MainMenuCustomer(Customer loggedCustomer) throws IOException {
 

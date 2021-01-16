@@ -12,7 +12,7 @@ import java.util.*;
 
 public class CustomersDatabase {
     private static CustomersDatabase customersDatabase = null;
-    private List<Customer> customers;
+    private final List<Customer> customers;
 
     /**
      *
@@ -37,7 +37,7 @@ public class CustomersDatabase {
         for (Customer customer : customers) {
             customer.setAccounts(accounts.get(customer.getsID()));
         }
-    };
+    }
 
     /**
      * Returns List of Customers.

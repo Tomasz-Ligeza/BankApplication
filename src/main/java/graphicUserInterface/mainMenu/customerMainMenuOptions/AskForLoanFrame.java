@@ -23,7 +23,7 @@ public class AskForLoanFrame
     private JComboBox months;
     private JComboBox years;
     private JButton ASKButton;
-    private Customer customerCopy;
+    private final Customer customerCopy;
     private CurrencyManager.Currency currency;
     private double amount;
     private int duration;

@@ -41,6 +41,6 @@ public class CurrencyManager {
         USD,
         EUR,
         GBP,
-    };
+    }
 
 }

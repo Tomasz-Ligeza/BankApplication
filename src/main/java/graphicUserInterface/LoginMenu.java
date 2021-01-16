@@ -11,7 +11,6 @@ import person.Employee.Employee;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Optional;
 
 public class LoginMenu
@@ -19,7 +18,7 @@ public class LoginMenu
         implements ActionListener,
         WindowActions {
 
-    JPanel loginPanel;
+    JPanel logPanel;
     JRadioButton customerRadioButton;
     JRadioButton workerRadioButton;
     JPasswordField passwordField;
@@ -44,7 +43,7 @@ public class LoginMenu
         WindowActions.setHalfScreenSize(this);
 
         this.setTitle("Your Bank, Welcome!");
-        this.setContentPane(loginPanel);
+        this.setContentPane(logPanel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
 
@@ -126,11 +125,6 @@ public class LoginMenu
                     Employee toLogEmployee = matchedEmployee.get();
 
                     loginField.setText("ZALOGOWANO PRACOWNIKA");   //usun to pozniej xd
-                    //ZALOGOWANO!!!,
-                    // TUTAJ CIĘ STANISŁAWIE OPUSZCZAM
-                    //DALEJ BYL TEN KOD, ALE MUSISZ GO CIUT ZMIENIC:
-                    //POWINNO BYĆ W TYM KONSTRUKTORZE KLIENTA PRZESYŁANIE JEGO KONTA DALEJ
-                    //ŻEBY NIE TRZEBA BYŁO DRUGI RAZ TEGO WYSZUKIWAĆ
 
                     JOptionPane.showMessageDialog(null, "LOGGED", "Succesful login operation", JOptionPane.INFORMATION_MESSAGE);
                     this.dispose();
@@ -144,40 +138,6 @@ public class LoginMenu
                     JOptionPane.showMessageDialog(null, "WRONG LOGIN DATA!", "DATA ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            /*
-            if(chooser == 1){
-                if(loginInfoCustomer.containsKey(loginField.getText()) &&
-                    loginInfoCustomer.get(loginField.getText()).equals(String.valueOf(passwordField.getPassword()))){
-                    this.dispose();
-
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "WRONG DATA, ARE YOU MAD?!", "WRONG DATA ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-            else if(chooser == 2){
-                if(loginInfoEmployee.containsKey(loginField.getText())&&
-                    loginInfoEmployee.get(loginField.getText()).equals(String.valueOf(passwordField.getPassword()))){
-                    this.dispose();
-                    try{
-                        new MainMenuEmployee(loginInfoCustomer, loginInfoEmployee);
-                    }catch(IOException ioException){
-                        ioException.printStackTrace();
-                    }
-                }
-                else if(loginInfoEmployee.containsKey(loginField.getText()) &&
-                    !loginInfoEmployee.get(loginField.getText()).equals(String.valueOf(passwordField.getPassword()))){
-                    JOptionPane.showMessageDialog(null, "WRONG PASSWORD HONEY", "WRONG PASSWORD", JOptionPane.ERROR_MESSAGE);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "USERNAME NOT FOUND", "NO USERNAME", JOptionPane.ERROR_MESSAGE);
-
-                }
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Choose your profession summoner!", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            */
         }
     }
 }

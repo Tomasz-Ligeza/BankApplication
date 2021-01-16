@@ -17,11 +17,11 @@ public class CreatePeriodPaymentFrame
     private JFormattedTextField amountFormattedTextField;
     private JFormattedTextField durationTimeInMonthsFormattedTextField;
     private JButton submitButton;
-    private Customer customerCopy;
+    private final Customer customerCopy;
     private String receiverAccountNr;
     private double amount;
     private int duration;
-    private int userPIN;
+    private final int userPIN;
 
     public CreatePeriodPaymentFrame(Customer customer) throws IOException {
 

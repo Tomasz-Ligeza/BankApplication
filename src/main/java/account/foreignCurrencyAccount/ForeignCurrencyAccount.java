@@ -32,6 +32,6 @@ public class ForeignCurrencyAccount extends Account {
 
     @Override
     public String additionalInfo() {
-        return String.valueOf(getCurrency()) + "\n";
+        return getCurrency() + "\n";
     }
 }

@@ -19,7 +19,7 @@ public class MakeTransferFrame
     private String receiverAccount;
     private String amount;
 
-    private Customer customerCopy;
+    private final Customer customerCopy;
 
     public MakeTransferFrame(Customer customer) throws IOException {
 
