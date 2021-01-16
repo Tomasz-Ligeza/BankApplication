@@ -44,7 +44,11 @@ public class AskForLoanFrame
                     amount = Double.parseDouble(amountOfLoan.getText());
                     duration = (int)months.getSelectedItem() + (int)years.getSelectedItem()*12;
                     //currency = CurrencyManager.parseCurrency(currencyOfLoan.getText());
-                    EMI = InterestCalculator.calculateInterestOfLoan(amount, duration);
+                    try {
+                        EMI = InterestCalculator.calculateInterestOfLoan(amount, duration);
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
                     String userInput;
                     userInput = JOptionPane.showInputDialog(this, "EMI = " + EMI +
                             "\nEnter your PIN", "Confirm with PIN", JOptionPane.QUESTION_MESSAGE);
