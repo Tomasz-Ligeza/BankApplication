@@ -4,6 +4,7 @@ package databases;
 import account.Account;
 import address.Address;
 import person.Customer.Customer;
+import person.Customer.Loan;
 import person.Employee.Employee;
 import transaction.Transaction;
 
@@ -17,11 +18,13 @@ import java.time.format.DateTimeFormatter;
  * Class that takes care of saving data after closing application.
  *
  */
+
 public class DatabaseBackuper {
     private static DatabaseBackuper databaseBackuper;
     private static CustomersDatabase customersDatabase;
     private static EmployeesDatabase employeesDatabase;
     private static TransactionsDatabase transactionsDatabase;
+    private static LoansDatabase loansDatabase;
 
     public static DatabaseBackuper getInstance() {
         if(databaseBackuper == null) {
@@ -35,6 +38,7 @@ public class DatabaseBackuper {
         saveCustomersData();
         saveEmployeesData();
         saveTransactionsData();
+        saveLoansData();
     }
 
 
@@ -48,6 +52,7 @@ public class DatabaseBackuper {
         customersDatabase = CustomersDatabase.getInstance();
         employeesDatabase = EmployeesDatabase.getInstance();
         transactionsDatabase = TransactionsDatabase.getInstance();
+        loansDatabase = LoansDatabase.getInstance();
     }
 
     private void saveCustomersData() {
@@ -96,6 +101,21 @@ public class DatabaseBackuper {
             e.printStackTrace();
         }
     }
+
+
+    private void saveLoansData() {
+        File file;
+        try {
+            file = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\loans.data");
+            FileWriter fileWriter = new FileWriter(file, false);
+            loansDatabase.getLoans().forEach(loan -> saveOneLoanData(loan, fileWriter));
+            fileWriter.close();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /*
     login	password	sID	9999
@@ -210,4 +230,13 @@ public class DatabaseBackuper {
         }
     }
 
+    private void saveOneLoanData(Loan loan, Writer file) {
+        try {
+            file.write(loan.getAccountNumber() + "\n");
+            file.write(loan.getAmount() + "\n\n");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

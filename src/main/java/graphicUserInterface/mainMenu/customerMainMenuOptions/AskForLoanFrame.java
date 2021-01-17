@@ -1,9 +1,12 @@
 package graphicUserInterface.mainMenu.customerMainMenuOptions;
 
+import account.Account;
 import account.foreignCurrencyAccount.CurrencyManager;
 import auto.calculators.InterestCalculator;
+import databases.LoansDatabase;
 import hardwareSettings.WindowActions;
 import person.Customer.Customer;
+import person.Customer.Loan;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,18 +22,14 @@ public class AskForLoanFrame
 
     private JPanel panel;
     private JFormattedTextField amountOfLoan;
-    private JFormattedTextField currencyOfLoan;
     private JComboBox months;
     private JComboBox years;
     private JButton ASKButton;
-    private final Customer customerCopy;
-    private CurrencyManager.Currency currency;
     private double amount;
     private int duration;
     private double EMI;
 
-    public AskForLoanFrame(Customer customer) throws IOException {
-        customerCopy = customer;
+    public AskForLoanFrame(Customer customer, Account account) throws IOException {
         WindowActions.setBankLogoFrame(this);
 
         for(int i = 1; i <= 12; i++)
@@ -41,9 +40,9 @@ public class AskForLoanFrame
         ASKButton.setFocusable(false);
         ASKButton.addActionListener(
                 e -> {
+                    String amountString = amountOfLoan.toString().replace(",", ".");
                     amount = Double.parseDouble(amountOfLoan.getText());
                     duration = (int)months.getSelectedItem() + (int)years.getSelectedItem()*12;
-                    //currency = CurrencyManager.parseCurrency(currencyOfLoan.getText());
                     try {
                         EMI = InterestCalculator.calculateInterestOfLoan(amount, duration);
                     } catch (Exception exception) {
@@ -52,9 +51,13 @@ public class AskForLoanFrame
                     String userInput;
                     userInput = JOptionPane.showInputDialog(this, "EMI = " + EMI +
                             "\nEnter your PIN", "Confirm with PIN", JOptionPane.QUESTION_MESSAGE);
-                    if(Integer.valueOf(userInput) == customerCopy.getiPIN()){
+                    if(Integer.valueOf(userInput) == customer.getiPIN()) {
+                        Loan loan = new Loan();
+                        loan.setAccountNumber(account.getAccountNumber());
+                        loan.setAmount(amount);
+                        LoansDatabase.getInstance().addLoan(loan);
                         this.dispose();
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(this, "WRONG DATA", "Wrong data", JOptionPane.ERROR_MESSAGE);
                     }
                 }
@@ -70,6 +73,4 @@ public class AskForLoanFrame
     public void actionPerformed(ActionEvent e) {
 
     }
-
-
 }

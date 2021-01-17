@@ -30,8 +30,10 @@ public class MainMenuCustomer
         WindowActions.setUp(this);
         WindowActions.addMenuBar(this);
 
-        for(var acc : loggedCustomer.getAccounts())
-            chooseAccount.addItem(acc);
+        for(var acc : loggedCustomer.getAccounts()) {
+            if(acc.getStatus())
+                chooseAccount.addItem(acc);
+        }
 
         customerHello.setText("HELLO " + loggedCustomer.getFirstName() + " " + loggedCustomer.getLastName());
         balanceDisplay.setText(String.format("%.2f", ((Account)chooseAccount.getSelectedItem()).getBalance()));
@@ -62,7 +64,7 @@ public class MainMenuCustomer
         askForALoanButton.addActionListener(
                 e -> {
                     try {
-                        new AskForLoanFrame(loggedCustomer);
+                        new AskForLoanFrame(loggedCustomer, (Account)chooseAccount.getSelectedItem());
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
