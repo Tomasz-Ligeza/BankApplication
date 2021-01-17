@@ -27,5 +27,8 @@ public class Account {
     public String typeOfAccount() { return "ACC"; }
     public String additionalInfo() { return ""; }
 
-
+    @Override
+    public String toString() {
+        return accountNumber + " (" + balance + ")";
+    }
 }

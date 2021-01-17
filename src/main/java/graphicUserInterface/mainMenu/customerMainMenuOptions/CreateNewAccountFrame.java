@@ -100,7 +100,7 @@ public class CreateNewAccountFrame
                             ((ForeignCurrencyAccount)account).setCurrency((CurrencyManager.Currency) currencyCombo.getSelectedItem());
                         }
                         account.setBalance(0.0);
-                        account.setStatus(true);
+                        account.setStatus(false);
                         account.setAccountNumber(AccountNumberGenerator.nextAccountNumber());
                         customer.addAccount(account);
                         JOptionPane.showMessageDialog(this, "ACCOUNT ADDED!", "Account added message", JOptionPane.INFORMATION_MESSAGE);

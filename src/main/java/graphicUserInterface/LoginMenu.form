@@ -47,7 +47,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value="malamysz"/>
+        </properties>
       </component>
       <component id="6ada6" class="javax.swing.JLabel" binding="loginLabel">
         <constraints>
@@ -87,7 +89,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value="1234"/>
+        </properties>
       </component>
       <component id="dc347" class="javax.swing.JLabel" binding="passwordLabel">
         <constraints>

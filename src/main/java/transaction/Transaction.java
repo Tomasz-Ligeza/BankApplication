@@ -58,4 +58,9 @@ public class Transaction {
     public LocalTime getSendingTime() {
         return sendingTime;
     }
+
+    @Override
+    public String toString() {
+        return senderAccountNumber + " to " + receiverAccountNumber + " <" + transferAmount + ">";
+    }
 }

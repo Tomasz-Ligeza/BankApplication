@@ -99,9 +99,6 @@ public class LoginMenu
                     matchedCustomer.get().getPassword().equals(new String(passwordField.getPassword()))) {
 
                     Customer toLogCustomer = matchedCustomer.get();
-
-                    loginField.setText("ZALOGOWANO KLIENTA");
-
                     JOptionPane.showMessageDialog(null, "LOGGED", "Succesful login operation", JOptionPane.INFORMATION_MESSAGE);
                     this.dispose();
                     try {
@@ -123,8 +120,6 @@ public class LoginMenu
                     matchedEmployee.get().getPassword().equals(new String(passwordField.getPassword()))) {
 
                     Employee toLogEmployee = matchedEmployee.get();
-
-                    loginField.setText("ZALOGOWANO PRACOWNIKA");   //usun to pozniej xd
 
                     JOptionPane.showMessageDialog(null, "LOGGED", "Succesful login operation", JOptionPane.INFORMATION_MESSAGE);
                     this.dispose();

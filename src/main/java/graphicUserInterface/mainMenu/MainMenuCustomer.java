@@ -1,10 +1,13 @@
 package graphicUserInterface.mainMenu;
 
+import account.Account;
 import graphicUserInterface.mainMenu.customerMainMenuOptions.*;
 import hardwareSettings.WindowActions;
 import person.Customer.Customer;
 
 import javax.swing.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.IOException;
 
 public class MainMenuCustomer
@@ -18,28 +21,26 @@ public class MainMenuCustomer
     private JButton askForALoanButton;
     private JButton createNewAccountButton;
     private JButton changeDataButton;
-    private JButton createPeriodicPaymentButton;
     private JLabel balanceDisplay;
-    private JComboBox chooseAccount;
+    private JComboBox<Account> chooseAccount;
     private JPanel balancePanel;
-
-    private final Customer loggedCustomerCopy;
 
     public MainMenuCustomer(Customer loggedCustomer) throws IOException {
 
         WindowActions.setUp(this);
         WindowActions.addMenuBar(this);
 
-        loggedCustomerCopy = loggedCustomer;
+        for(var acc : loggedCustomer.getAccounts())
+            chooseAccount.addItem(acc);
 
         customerHello.setText("HELLO " + loggedCustomer.getFirstName() + " " + loggedCustomer.getLastName());
-        balanceDisplay.setText("BALANCE");
+        balanceDisplay.setText(String.format("%.2f", ((Account)chooseAccount.getSelectedItem()).getBalance()));
 
         makeTransferButton.setFocusable(false);
         makeTransferButton.addActionListener(
                 e -> {
                     try {
-                        new MakeTransactionFrame(loggedCustomerCopy);
+                        MakeTransactionFrame mtF = new MakeTransactionFrame(loggedCustomer);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -50,7 +51,7 @@ public class MainMenuCustomer
         checkHistoryButton.addActionListener(
                 e -> {
                     try {
-                        new CheckHistoryFrame(loggedCustomerCopy);
+                        new CheckHistoryFrame((Account)chooseAccount.getSelectedItem());
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -61,7 +62,7 @@ public class MainMenuCustomer
         askForALoanButton.addActionListener(
                 e -> {
                     try {
-                        new AskForLoanFrame(loggedCustomerCopy);
+                        new AskForLoanFrame(loggedCustomer);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -72,7 +73,7 @@ public class MainMenuCustomer
         changeDataButton.addActionListener(
                 e -> {
                     try {
-                        new ChangeDataFrame(loggedCustomerCopy);
+                        new ChangeDataFrame(loggedCustomer);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -83,18 +84,7 @@ public class MainMenuCustomer
         createNewAccountButton.addActionListener(
                 e -> {
                     try {
-                        new CreateNewAccountFrame(loggedCustomerCopy);
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
-                    }
-                }
-        );
-
-        createPeriodicPaymentButton.setFocusable(false);
-        createPeriodicPaymentButton.addActionListener(
-                e -> {
-                    try {
-                        new CreatePeriodPaymentFrame(loggedCustomerCopy);
+                        new CreateNewAccountFrame(loggedCustomer);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -103,7 +93,7 @@ public class MainMenuCustomer
 
         chooseAccount.setFocusable(false);
         chooseAccount.addActionListener(
-                e -> System.out.println("impelemt")
+                e ->  balanceDisplay.setText(String.format("%.2f", ((Account)chooseAccount.getSelectedItem()).getBalance()))
         );
 
         this.setContentPane(panel);

@@ -109,6 +109,7 @@ public class CreateAccountMenu
                 );
                 customer.setLogin(customer.getsID());
 
+
                 if(CustomersDatabase.getInstance().addCustomer(customer)) {
                     String password = customer.getPassword();
                     int pin = customer.getiPIN();
