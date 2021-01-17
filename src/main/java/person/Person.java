@@ -9,6 +9,7 @@ import auto.calculators.AgeCalculator;
 import static auto.calculators.AgeCalculator.calculateAge;
 
 public abstract class Person {
+    protected String sID;
     private String firstName;
     private String lastName;
     private String sPESEL;

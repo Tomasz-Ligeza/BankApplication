@@ -1,11 +1,13 @@
 package account.foreignCurrencyAccount;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CurrencyManager {
     static private Map<Currency, Double> currencyValue;
 
     static {
+        currencyValue = new HashMap<>();
         currencyValue.put(Currency.PLN, 1.d); //komentarzmikiego
         currencyValue.put(Currency.USD, 3.5);
         currencyValue.put(Currency.EUR, 4.50);
@@ -41,5 +43,6 @@ public class CurrencyManager {
         USD,
         EUR,
         GBP,
-    };
+    }
+
 }

@@ -24,4 +24,14 @@ public class ForeignCurrencyAccount extends Account {
         this.currency = currency;
     }
     public CurrencyManager.Currency getCurrency() {return this.currency; }
+
+    @Override
+    public String typeOfAccount() {
+        return "FCA";
+    }
+
+    @Override
+    public String additionalInfo() {
+        return getCurrency() + "\n";
+    }
 }

@@ -13,9 +13,8 @@ import java.util.*;
 public class Customer extends Person implements Generator {
     private String login;
     private String password;    //poczatkowe haslo jest generowane automatycznie, mozna zmienic w zmienDane();
-    private String sID;
     private int iPIN;
-    private List<Account> accounts;
+    private final List<Account> accounts;
 
     public Customer(){
         //default
@@ -72,8 +71,17 @@ public class Customer extends Person implements Generator {
         this.iPIN = iPIN;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
     public void setAccounts(List<Account> accounts) {
-        this.accounts.addAll(accounts);
+        if(accounts != null)
+            this.accounts.addAll(accounts);
+    }
+
+    public void addAccount(Account account) {
+        this.accounts.add(account);
     }
 
     @Override
@@ -103,9 +111,5 @@ public class Customer extends Person implements Generator {
     @Override
     public int hashCode() {
         return Objects.hash(login, password, sID, iPIN);
-    }
-
-    public List<Account> getAccounts() {
-        return accounts;
     }
 }

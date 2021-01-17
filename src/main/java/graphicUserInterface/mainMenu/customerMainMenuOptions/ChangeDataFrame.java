@@ -18,12 +18,8 @@ public class ChangeDataFrame
     private JButton SUBMITButton;
     private JPanel panel;
 
-    private String newLogin;
-    private String newPassword;
-    private String oldPassword;
-
-    private Customer loggedCustomerCopy;
-    private int userPIN;
+    private final Customer loggedCustomerCopy;
+    private final int userPIN;
 
     public ChangeDataFrame(Customer loggedCustomer) throws IOException {
 
@@ -32,20 +28,21 @@ public class ChangeDataFrame
         //WindowActions.centreWindow(this);
         WindowActions.setBankLogoFrame(this);
 
-        newLogin = newLoginFormattedTextField.getText();
-        newPassword = newPasswordPasswordField.getPassword().toString();
-        oldPassword = oldPasswordConfirmPasswordField.getPassword().toString();
-
         SUBMITButton.addActionListener(
                 e ->
                 {
+
+                    String newLogin = newLoginFormattedTextField.getText();
+                    String newPassword = new String(newPasswordPasswordField.getPassword());
+                    String oldPassword = new String(oldPasswordConfirmPasswordField.getPassword());
+
                     if(newLogin != null &&
                             newPassword != null &&
                             oldPassword.equals(loggedCustomerCopy.getPassword())){
 
                         String userInput;
                         userInput = JOptionPane.showInputDialog(this, "Enter your PIN", "Confirm with PIN", JOptionPane.QUESTION_MESSAGE);
-                        if(Integer.valueOf(userInput) == userPIN){
+                        if(Integer.valueOf(userInput).equals(userPIN)){
                             this.dispose();
                             loggedCustomerCopy.setLogin(newLogin);
                             loggedCustomerCopy.setPassword(newPassword);
@@ -53,9 +50,10 @@ public class ChangeDataFrame
                             JOptionPane.showMessageDialog(this, "WRONG DATA", "Wrong data", JOptionPane.ERROR_MESSAGE);
                         }
 
-                    }else{
+                    } else{
                         JOptionPane.showMessageDialog(null, "WRONG DATA!", "WRONG DATA", JOptionPane.ERROR_MESSAGE);
-                        System.out.println(loggedCustomerCopy.toString());   //haslo jest poprawnie przypisane to o co tu chodzi?
+                        System.out.println(loggedCustomerCopy.toString());
+                        //haslo jest poprawnie przypisane to o co tu chodzi?
                         /*
                         odpalilem debugger i juz widze
                         oldPassword i password uzytwnika sie roznia dlugoscia i znakami

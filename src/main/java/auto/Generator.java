@@ -1,5 +1,7 @@
 package auto;
 
+import person.IDGenerator;
+
 import java.security.SecureRandom;
 import java.util.UUID;
 
@@ -17,7 +19,6 @@ public interface Generator {
     }
 
     default String setId(){
-        String uniqueID = UUID.randomUUID().toString();
-        return uniqueID;
+        return IDGenerator.getInstance().generateCustomerID();
     }
 }

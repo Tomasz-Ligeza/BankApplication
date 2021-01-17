@@ -1,5 +1,9 @@
 package graphicUserInterface.mainMenu.customerMainMenuOptions;
 
+import account.Account;
+import account.AccountNumberGenerator;
+import account.foreignCurrencyAccount.CurrencyManager;
+import account.foreignCurrencyAccount.ForeignCurrencyAccount;
 import account.savingsAccount.SavingsAccount;
 import hardwareSettings.WindowActions;
 import person.Customer.Customer;
@@ -8,6 +12,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Random;
 
 public class CreateNewAccountFrame
         extends JFrame
@@ -18,18 +23,14 @@ public class CreateNewAccountFrame
     private JRadioButton SAVINGSRadioButton;
     private JRadioButton FOREIGN_CURRENCYRadioButton;
     private JFormattedTextField targetTextField;
-    private JComboBox currencyCombo;
+    private JComboBox<CurrencyManager.Currency> currencyCombo;
     private JButton submitButton;
     /*
     1 - normal
     2 - savings
     3 - foreign
      */
-    private int chooser = 1;
-    private Customer customerCopy;
-
     public CreateNewAccountFrame(Customer customer) throws IOException {
-        customerCopy = customer;
         WindowActions.setBankLogoFrame(this);
 
         ButtonGroup group = new ButtonGroup();
@@ -49,8 +50,8 @@ public class CreateNewAccountFrame
         NORMALRadioButton.setFocusable(false);
         NORMALRadioButton.addActionListener(
                 e -> {
-                    this.chooser = 1;
                     targetTextField.setEnabled(false);
+                    targetTextField.setFocusable(false);
                     currencyCombo.setEnabled(false);
                 }
         );
@@ -58,8 +59,8 @@ public class CreateNewAccountFrame
         SAVINGSRadioButton.setFocusable(false);
         SAVINGSRadioButton.addActionListener(
                 e -> {
-                    this.chooser = 2;
                     targetTextField.setEnabled(true);
+                    targetTextField.setFocusable(true);
                     currencyCombo.setEnabled(false);
                 }
         );
@@ -67,26 +68,47 @@ public class CreateNewAccountFrame
         FOREIGN_CURRENCYRadioButton.setFocusable(false);
         FOREIGN_CURRENCYRadioButton.addActionListener(
                 e -> {
-                    this.chooser = 3;
                     targetTextField.setEnabled(false);
+                    targetTextField.setFocusable(false);
                     currencyCombo.setEnabled(true);
                 }
         );
+        for (var curr: CurrencyManager.getCurrencies()) {
+            if(curr != CurrencyManager.Currency.PLN)
+                currencyCombo.addItem(curr);
+        }
 
         submitButton.setFocusable(false);
         submitButton.addActionListener(
                 e -> {
                     String userInput;
-                    userInput = JOptionPane.showInputDialog(this, "Type of new account: " + chooser +
+                    userInput = JOptionPane.showInputDialog(this,
                             "\nEnter your PIN", "Confirm with PIN", JOptionPane.QUESTION_MESSAGE);
 
-                    if(Integer.valueOf(userInput) == customerCopy.getiPIN()){
+                    if(Integer.valueOf(userInput).equals(customer.getiPIN())) {
                         this.dispose();
+                        Account account = null;
+                        if(NORMALRadioButton.isSelected()) {
+                            account = new Account();
+                        }
+                        if(SAVINGSRadioButton.isSelected()) {
+                            account = new SavingsAccount();
+                            ((SavingsAccount)account).setTargetBalance(Float.parseFloat(targetTextField.getText()));
+                        }
+                        if(FOREIGN_CURRENCYRadioButton.isSelected()) {
+                            account = new ForeignCurrencyAccount();
+                            ((ForeignCurrencyAccount)account).setCurrency((CurrencyManager.Currency) currencyCombo.getSelectedItem());
+                        }
+                        account.setBalance(0.0);
+                        account.setStatus(false);
+                        account.setAccountNumber(AccountNumberGenerator.nextAccountNumber());
+                        customer.addAccount(account);
+                        JOptionPane.showMessageDialog(this, "ACCOUNT ADDED!", "Account added message", JOptionPane.INFORMATION_MESSAGE);
+
                     }else{
                         JOptionPane.showMessageDialog(this, "WRONG DATA", "Wrong data", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-
         );
 
         this.setSize(650, 400);

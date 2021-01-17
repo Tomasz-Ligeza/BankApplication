@@ -1,42 +1,31 @@
 ACC
-sID
+00000000
 accountNumber
 true	7.2
 
 ACC
-sID
+00000000
 accountNumber
 true	7.2
+
+ACC
+00000007
+4082495882524011
+true	3699.7999999999993
 
 SA
-sID
-accountNumber
-true	2.0
-3.0
-
-FCA
-sID
-accountNumber
-true	3.0
-EUR
+00000007
+3932694471003196
+true	599.24
+1000.0
 
 ACC
-00000000
-accountNumber
-true	2000
+00000007
+1063894871973051
+true	0.0
 
 ACC
-00000000
-accountNumber
-true	14572.53
+00000007
+7779787621410476
+true	0.0
 
-ACC
-00000000
-accountNumber
-true	0.50
-
-FCA
-00000000
-accountNumber
-true	4.2
-EUR

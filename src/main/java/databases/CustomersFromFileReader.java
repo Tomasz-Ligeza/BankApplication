@@ -47,13 +47,14 @@ public class CustomersFromFileReader {
 
             //localData
             String s = in.next();
-            LocalDate bornDate = LocalDate.of(Integer.parseInt(s.substring(0, 4)), Integer.parseInt(s.substring(5, 7)), Integer.parseInt(s.substring(8, 10)));
+            LocalDate bornDate = LocalDate.parse(s);
             customer.setBornDate(bornDate);
 
             Address a = new Address(in.next(), in.next(), in.next(), in.next(), in.next());
             customer.setAddress(a);
         }
         catch(Exception e) {
+            e.printStackTrace();
             return null;
         }
         return customer;

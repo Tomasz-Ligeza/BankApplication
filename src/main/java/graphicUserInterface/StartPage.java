@@ -19,8 +19,6 @@ public class StartPage
 
 
     public StartPage() throws IOException {
-
-
         WindowActions.setUp(this);
         /*WindowActions.setBankLogoFrame(this);
         WindowActions.centreWindow(this);

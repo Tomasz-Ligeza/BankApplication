@@ -1,11 +1,36 @@
-login	password	sID	9999
-firstName	lastName	sPESEL	2000.04.27
+login	password	00000000	9999
+firstName	lastName	sPESEL	2000-04-27
 country	city
 street	houseNr
 postalCode
 
-wigrys	123456	00000000	6969
-Tomasz	Ligęza	00242709999	2000.04.27
-Poland Waksmund
+wigrys	123456	00000001	6969
+Tomasz	Ligęza	00242709999	2000-04-27
+Poland	Waksmund
 Nowotarska	198
 34-431
+
+00000003	hXIHOR8tZS	00000003	9156
+jurek	owsiak	00242705576	1900-01-01
+KartonowaPolska	Krakow
+Nowotarska	198
+34-431
+
+00000005	hnB2IV86Xd	00000005	3292
+Mikołaj	Migacz	00234598765	1900-01-01
+PolskaZDykty	Nowy_Sącz
+Nowosądecka	123
+34-987
+
+malamysz	1234	00000007	7910
+adam	malysz	00012312323	1900-01-01
+Zakopane	AleLeciSkubany
+Wyladował	102m
+34-431
+
+00000008	cayA5Cs2h0	00000008	3554
+adam	szczerba	70123123123	1900-01-01
+Polandia	Warszawka
+Arggggh	12b
+34-341
+

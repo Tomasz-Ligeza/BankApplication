@@ -56,7 +56,7 @@
           <text value="Address"/>
         </properties>
       </component>
-      <component id="349ba" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="349ba" class="javax.swing.JTextField" binding="nameTextField">
         <constraints>
           <grid row="1" column="4" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -64,7 +64,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="ed61c" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="ed61c" class="javax.swing.JTextField" binding="surnameTextField">
         <constraints>
           <grid row="2" column="4" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -72,7 +72,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="be537" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="be537" class="javax.swing.JTextField" binding="peselTextField">
         <constraints>
           <grid row="3" column="4" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -80,7 +80,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="11940" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="11940" class="javax.swing.JComboBox" binding="yearComboBox">
         <constraints>
           <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -88,7 +88,7 @@
           <model/>
         </properties>
       </component>
-      <component id="7344c" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+      <component id="7344c" class="javax.swing.JComboBox" binding="monthComboBox">
         <constraints>
           <grid row="4" column="5" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -96,7 +96,7 @@
           <model/>
         </properties>
       </component>
-      <component id="e0f1" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+      <component id="e0f1" class="javax.swing.JComboBox" binding="dayComboBox">
         <constraints>
           <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -104,7 +104,7 @@
           <model/>
         </properties>
       </component>
-      <component id="49381" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="49381" class="javax.swing.JTextField" binding="countryTextField">
         <constraints>
           <grid row="5" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -154,7 +154,7 @@
           <text value="House Number"/>
         </properties>
       </component>
-      <component id="fabe4" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+      <component id="fabe4" class="javax.swing.JTextField" binding="cityTextField">
         <constraints>
           <grid row="6" column="5" row-span="2" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -162,7 +162,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="dc0" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+      <component id="dc0" class="javax.swing.JTextField" binding="postalCodeTextField">
         <constraints>
           <grid row="8" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -170,7 +170,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="6f5ef" class="javax.swing.JTextField" binding="textField7" default-binding="true">
+      <component id="6f5ef" class="javax.swing.JTextField" binding="streetTextField">
         <constraints>
           <grid row="9" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -178,7 +178,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="14fe2" class="javax.swing.JTextField" binding="textField8" default-binding="true">
+      <component id="14fe2" class="javax.swing.JTextField" binding="houseNumberTextField">
         <constraints>
           <grid row="10" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -186,11 +186,12 @@
         </constraints>
         <properties/>
       </component>
-      <component id="4a5a9" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <component id="4a5a9" class="javax.swing.JButton" binding="registerButton">
         <constraints>
           <grid row="7" column="9" row-span="4" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <enabled value="true"/>
           <icon value="pencil_green.png"/>
           <text value="Register"/>
         </properties>
