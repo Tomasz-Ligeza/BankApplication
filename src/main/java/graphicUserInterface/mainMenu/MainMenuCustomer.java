@@ -36,13 +36,20 @@ public class MainMenuCustomer
         }
 
         customerHello.setText("HELLO " + loggedCustomer.getFirstName() + " " + loggedCustomer.getLastName());
-        balanceDisplay.setText(String.format("%.2f", ((Account)chooseAccount.getSelectedItem()).getBalance()));
-
+        if(chooseAccount.getSelectedItem() != null)
+            balanceDisplay.setText(String.format("%.2f", ((Account)chooseAccount.getSelectedItem()).getBalance()));
+        else {
+            balanceDisplay.setText("NO ACCOUNT!");
+            makeTransferButton.setEnabled(false);
+            askForALoanButton.setEnabled(false);
+            checkHistoryButton.setEnabled(false);
+        }
         makeTransferButton.setFocusable(false);
         makeTransferButton.addActionListener(
                 e -> {
                     try {
-                        MakeTransactionFrame mtF = new MakeTransactionFrame(loggedCustomer);
+                        if(chooseAccount.getSelectedItem() != null)
+                            new MakeTransactionFrame(loggedCustomer);
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -53,7 +60,8 @@ public class MainMenuCustomer
         checkHistoryButton.addActionListener(
                 e -> {
                     try {
-                        new CheckHistoryFrame((Account)chooseAccount.getSelectedItem());
+                        if(chooseAccount.getSelectedItem() != null)
+                            new CheckHistoryFrame((Account)chooseAccount.getSelectedItem());
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -64,7 +72,8 @@ public class MainMenuCustomer
         askForALoanButton.addActionListener(
                 e -> {
                     try {
-                        new AskForLoanFrame(loggedCustomer, (Account)chooseAccount.getSelectedItem());
+                        if(chooseAccount.getSelectedItem() != null)
+                            new AskForLoanFrame(loggedCustomer, (Account)chooseAccount.getSelectedItem());
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -95,7 +104,17 @@ public class MainMenuCustomer
 
         chooseAccount.setFocusable(false);
         chooseAccount.addActionListener(
-                e ->  balanceDisplay.setText(String.format("%.2f", ((Account)chooseAccount.getSelectedItem()).getBalance()))
+                e -> {
+                    if(chooseAccount.getSelectedItem() != null) {
+                        balanceDisplay.setText(String.format("%.2f", ((Account) chooseAccount.getSelectedItem()).getBalance()));
+                        makeTransferButton.setEnabled(true);
+                        askForALoanButton.setEnabled(true);
+                        checkHistoryButton.setEnabled(true);
+                    }
+                    else {
+                        balanceDisplay.setText("NO ACCOUNT!");
+                    }
+                }
         );
 
         this.setContentPane(panel);
