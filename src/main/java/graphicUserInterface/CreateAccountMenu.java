@@ -1,5 +1,7 @@
 package graphicUserInterface;
 
+import account.Account;
+import account.AccountNumberGenerator;
 import address.Address;
 import databases.CustomersDatabase;
 import hardwareSettings.WindowActions;
