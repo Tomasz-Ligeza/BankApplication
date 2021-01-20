@@ -10,8 +10,9 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.*;
 
-/*
-    if we will change our mind about using databases instead of files, just
+
+/**
+ * Class responsible for reading customers data from file.
  */
 public class CustomersFromFileReader {
     public static List<Customer> readCustomersDataFromFile() {

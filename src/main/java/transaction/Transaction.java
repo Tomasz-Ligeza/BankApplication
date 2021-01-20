@@ -2,14 +2,11 @@ package transaction;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
+
 
 /**
- * We have to think about receiving transactions mechanism:
- *      * we have to set transactionStatus as true after receiving one,
- *      * alse receivingDate has to be set smth like Today() after receiving
+ * Typical "data" class with just getters and setters.
  */
-
 public class Transaction {
     private String receiverAccountNumber;
     private String senderAccountNumber;

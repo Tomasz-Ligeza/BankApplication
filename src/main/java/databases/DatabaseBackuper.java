@@ -55,6 +55,11 @@ public class DatabaseBackuper {
         loansDatabase = LoansDatabase.getInstance();
     }
 
+
+    /**
+     * Function that saves customers data. It opens files - customers.data and accounts.data,
+     * then starts saving every customer and its accounts.
+     */
     private void saveCustomersData() {
         File customersFile;
         File accountsFile;
@@ -75,6 +80,9 @@ public class DatabaseBackuper {
         }
     }
 
+    /**
+     * Function that saves employees data. Works as any other save function in this class.
+     */
     private void saveEmployeesData() {
         File file;
         try {

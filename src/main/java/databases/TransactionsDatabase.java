@@ -6,7 +6,6 @@ import transaction.Transaction;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class TransactionsDatabase {
     private static TransactionsDatabase transactionsDatabase;
@@ -28,6 +27,13 @@ public class TransactionsDatabase {
         transactions.add(transaction);
     }
 
+
+    /**
+     * Function that takes care about making transactions.
+     * It adds amount of balance to receiver account if it exists.
+     * and subtracts it from senders account.
+     * @param transaction
+     */
     public void makeTransaction(Transaction transaction) {
         List<Account> accounts = new LinkedList<>();
         CustomersDatabase.getInstance().getCustomers()

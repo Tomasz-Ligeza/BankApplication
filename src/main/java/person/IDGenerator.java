@@ -13,6 +13,10 @@ public class IDGenerator {
     private static String lastEmployeeID;
     private static IDGenerator idGenerator;
 
+    /**
+     * Costructor finds last ids for both coustomers and employees.
+     * And then it is able to provide .next'People'ID() functionality
+     */
     public IDGenerator() {
         characters = "0123456789abcdefghijklmnopqrstuvwxyz";
         CustomersDatabase customersDatabase = CustomersDatabase.getInstance();

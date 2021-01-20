@@ -2,6 +2,10 @@ package address;
 
 import java.util.Objects;
 
+
+/**
+ * Typical "data" class with only getters and setters.
+ */
 public class Address {
     private String country;
     private String city;
@@ -10,7 +14,6 @@ public class Address {
     private String postalCode;
 
     public Address() {
-        //default
     }
 
     public Address(String country, String city, String street, String houseNr, String postalCode){
