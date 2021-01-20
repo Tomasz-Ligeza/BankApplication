@@ -20,6 +20,10 @@ import java.util.*;
  */
 
 public class AccountsFromFileReader {
+    /**
+     * Function that reads accounts data from file, and maps id`s with accounts that belongs to that customer.
+     * @return map of Strings (ID) and List<Account> that this account has got.
+     */
     public static Map<String, List<Account>> readAccountsDataFromFile() {
         Map<String, List<Account>> accounts = new HashMap<String, List<Account>>();
         Scanner in;
@@ -59,6 +63,11 @@ public class AccountsFromFileReader {
         return accounts;
     }
 
+    /**
+     * @param in scanner with opened connection with a file.
+     * @param account that have to be filled up with data from file.
+     * @return
+     */
     private static Map.Entry<String, Account> readAccountData(Scanner in, Account account) {
         String id;
         try {

@@ -6,6 +6,12 @@ import java.security.SecureRandom;
 import java.util.UUID;
 
 public interface Generator {
+
+    /**
+     * Generates password for new users.
+     * It can contain A-Z, a-z, 0-1 chars.
+     * @return generated password.
+     */
     default String setPass(){
         final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         SecureRandom random = new SecureRandom();

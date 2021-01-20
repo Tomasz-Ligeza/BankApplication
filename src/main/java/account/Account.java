@@ -5,9 +5,6 @@ public class Account {
     protected boolean status;
     protected double balance;
 
-    //ctors
-
-
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
@@ -24,7 +21,15 @@ public class Account {
     public String getAccountNumber() { return accountNumber; }
     public double getBalance() { return balance; }
 
+    /**
+     * Function necessary to save and load accounts from file properly.
+     * @return Type of account as a String.
+     */
     public String typeOfAccount() { return "ACC"; }
+
+    /**
+     * If Account is a SavingsAccount - it means that we have to save/load double value of target.
+     */
     public String additionalInfo() { return ""; }
 
     @Override
