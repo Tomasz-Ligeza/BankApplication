@@ -20,13 +20,11 @@ class InterestCalculatorTest {
     }
 
     @Test
-    void calculateInterestOfLoan_paramsZero_assertZero() throws Exception {
+    void calculateInterestOfLoan_paramsZero_throwsIllegalArgumentException() throws Exception {
         amount = 0;
         time = 0;
 
-        result = InterestCalculator.calculateInterestOfLoan(amount, time);
-
-        Assertions.assertEquals(0, result);
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> InterestCalculator.calculateInterestOfLoan(amount, time));
     }
 
     @Test
@@ -44,9 +42,7 @@ class InterestCalculatorTest {
         amount = 10000;
         time = 0;
 
-        result = InterestCalculator.calculateInterestOfLoan(amount, time);
-
-        Assertions.assertNotEquals(0, result);
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> InterestCalculator.calculateInterestOfLoan(amount, time));
     }
 
     @Test
